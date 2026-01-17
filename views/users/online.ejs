@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Üyelik | Sosyal Hizmetler Sendikası</title>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+
+  <style>
+    body {font-family: "Lato", sans-serif; background-color: #f8f9fa;}
+
+    /* Navbar */
+    .custom-nav a {
+      font-size: 16px; font-weight: 600;
+    }
+
+    .logo-section {text-align: center; margin: 80px 0 40px 0;}
+    .logo-section img {width: 25%; max-width: 200px;}
+    .logo-section h1 {color: red; font-weight: 700; margin-top: 20px;}
+
+    .blog-container {max-width: 1250px; margin: auto; padding: 20px;}
+    .blog-card {border-radius: 1rem; overflow: hidden; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); background: #fff; transition: 0.2s;}
+    .blog-card:hover {transform: translateY(-8px);}
+    .blog-img {height: 240px; object-fit: cover; width: 100%;}
+    .blog-body {padding: 22px;}
+    .blog-body h3 {font-weight: 600; color: #dc3545; margin-bottom: 14px;}
+    .blog-body p {color: #444;}
+    .blog-read {margin-top: 12px; display: inline-block; color: white; background: #dc3545; padding: 10px 18px; border-radius: 6px;}
+    .blog-read:hover {background: #b50000; text-decoration: none;}
+
+    /* Footer */
+    footer a {color: white; text-decoration: none;}
+    footer a:hover {text-decoration: underline;}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="w3-top">
+    <%- include('../partials/nav') %>
+    </div>
+  </div>
+
+  <!-- Logo -->
+  <div class="logo-section">
+    <img src="/static/img/1.png" alt="Sendika Logosu">
+    <h1>SOSYAL HİZMETLER SENDİKASI</h1>
+  </div>
+
+  <!-- Blogs -->
+<div>
+  <form action="/uyelik" method="POST" class="container" style="max-width: 600px;">
+    <h2 class="mb-4 text-center">Online Üyelik Başvurusu</h2>
+
+    <div class="mb-3">
+      <label>Ad Soyad</label>
+      <input type="text" name="adsoyad" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label>TC Kimlik No</label>
+      <input type="text" name="tc" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Telefon</label>
+      <input type="text" name="telefon" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label>E-posta</label>
+      <input type="email" name="email" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Görev Yeri</label>
+      <input type="text" name="gorevyeri" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label>Meslek / Unvan</label>
+      <input type="text" name="unvan" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Başvuruyu Gönder</button>
+  </form>
+
+
+</div>
+
+  <!-- FOOTER -->
+<footer class="w3-container w3-red w3-center w3-padding-32" style="margin-top: 60px;">
+  <%- include("../partials/footer") %>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

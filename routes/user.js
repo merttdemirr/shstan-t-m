@@ -1,0 +1,22 @@
+const express=require("express")
+const router=express.Router()
+const controllersUser=require("../controllers/user")
+const path=require("path")
+
+router.use("/about",controllersUser.about)
+
+router.use("/komisyon",controllersUser.komisyon)
+
+router.use("/contact",controllersUser.contact)
+
+router.use("/blog",controllersUser.blog );
+
+router.use("/amac",controllersUser.amac );
+
+router.use("/faaliyet",controllersUser.faaliyet)
+
+router.use("/online",controllersUser.online)
+
+
+module.exports=router;
+
