@@ -4,6 +4,7 @@ const controllersUser=require("../controllers/user")
 const path=require("path")
 
 router.use("/about",controllersUser.about)
+router.use("/",controllersUser.about)
 
 router.use("/komisyon",controllersUser.komisyon)
 
