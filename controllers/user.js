@@ -27,9 +27,7 @@ exports.blog=function (req, res) {
 exports.faaliyet=function(req,res){
     res.render(path.join(__dirname,"../views/users","faaliyet"))
 }
-exports.üyelik=function(req,res){
-    res.render(path.join(__dirname,"../views/users","online"))
-}
+
 exports.amac=function(req,res){
     res.render(path.join(__dirname,"../views/users","amac"))
 }
