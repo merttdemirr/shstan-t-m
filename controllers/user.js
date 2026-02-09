@@ -38,7 +38,3 @@ exports.komisyon=function(req,res){
     res.render(path.join(__dirname,"../views/users","komisyonlarımız"))
 }
 
-
-exports.online=function(req,res){
-    res.render(path.join(__dirname,"../views/users","online"))
-}
