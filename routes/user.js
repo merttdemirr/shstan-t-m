@@ -17,7 +17,7 @@ router.use("/komisyon",controllersUser.online)
 
 router.use("/faaliyet",controllersUser.faaliyet)
 
-router.use("/online",controllersUser.online)
+router.use("/üyelik",controllersUser.online)
 
 
 module.exports=router;
