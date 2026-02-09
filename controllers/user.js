@@ -7,19 +7,9 @@ exports.about=function(req,res){
     res.render(path.join(__dirname,"../views/users","about2"))
 }
 
-exports.komisyon=function(req,res){
-    db.query("select * from komisyon")
-        .then(result=>{
-            res.render("users/komisyon",{
-                title:"Komisyonlar",
-                komisyonlar:result[0],
-            })
-        })
-        .catch(err=>console.log(err))
-}
 
 exports.contact=function(req,res){
-    res.render(path.join(__dirname,"../views/users","komisyon"))
+    res.render(path.join(__dirname,"../views/users","komisyonlarımız"))
 }
 
 exports.blog=function (req, res) {
@@ -41,6 +31,11 @@ exports.faaliyet=function(req,res){
 exports.amac=function(req,res){
     res.render(path.join(__dirname,"../views/users","amac"))
 }
+
+exports.komisyon=function(req,res){
+    res.render(path.join(__dirname,"../views/users","komisyonlarımız"))
+}
+
 
 exports.online=function(req,res){
     res.render(path.join(__dirname,"../views/users","online"))

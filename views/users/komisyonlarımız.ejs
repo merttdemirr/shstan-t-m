@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Komisyonlarımız</title>
+
+  <!-- W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+
+  <style>
+    body {font-family: "Lato", sans-serif; background-color: #f8f9fa;}
+    .logo-section {text-align: center; margin: 80px 0 40px 0;}
+    .logo-section img {width: 25%; max-width: 200px;}
+    .logo-section h1 {color: red; font-weight: 700; margin-top: 20px;}
+    .content-container {max-width: 900px; margin: auto; background-color: #fff; padding: 40px; border-radius: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.1);}
+    .content-container h2 {margin-bottom: 20px; color: #dc3545;}
+    .content-container p {font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;}
+
+    /* Kartları eşitleyen kısım */
+    .commission-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .commission-card .btn {
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <%- include('../partials/nav') %>
+</div>
+
+<!-- Logo -->
+<div class="logo-section">
+  <img src="/static/img/1.png" alt="Sendika Logosu">
+  <h1>SOSYAL HİZMETLER SENDİKASI</h1>
+</div>
+
+<div class="content-container">
+
+<div class="text-center mb-5">
+  <h2 style="font-weight:700;">Komisyonlarımız</h2>
+  <p>
+    Sosyal Hizmetler Sendikası bünyesinde oluşturulan komisyonlar; sahadaki sorunların
+    doğrudan tespiti, çözüm önerilerinin geliştirilmesi ve mesleki hakların güçlendirilmesi
+    amacıyla faaliyet yürütmektedir.
+  </p>
+</div>
+
+<div class="row g-4">
+
+<!-- Mobbing -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-bullhorn"></i> Mobbingle Mücadele</h5>
+<p>Psikolojik baskı ve yıldırma ile mücadele, çalışanlara destek.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Engelli & Yaşlı -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-wheelchair"></i> Engelli ve Yaşlı Hizmetleri</h5>
+<p>Engelli ve yaşlı hizmetlerinde görev yapan meslek elemanlarını temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Çocuk -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-child"></i> Çocuk Hizmetleri</h5>
+<p>Çocuk alanında çalışan personelin haklarını savunur.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Aile -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-home"></i> Aile ve Toplum Hizmetleri</h5>
+<p>Aile ve toplum temelli hizmetlerde çalışanları temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Kadın -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-female"></i> Kadının Statüsü</h5>
+<p>Kadın çalışanların hak ve güvenliğini güçlendirir.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Büro -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-file-text"></i> Büro Çalışanları</h5>
+<p>Büro personelinin özlük ve çalışma koşullarını iyileştirir.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Öğretmen -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-book"></i> Öğretmenler</h5>
+<p>Eğitim alanında görev yapan öğretmenleri temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Engelli Bakıcı -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-heart"></i> Engelli Bakıcıları</h5>
+<p>Engelli bireylere bakım hizmeti veren çalışanları temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Yaşlı Bakıcı -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-heartbeat"></i> Yaşlı Bakıcıları</h5>
+<p>Yaşlı bakım hizmetlerinde çalışanları temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Çocuk Bakıcı -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-smile-o"></i> Çocuk Bakıcıları</h5>
+<p>Çocuk bakımında görev yapan personeli temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Sağlık -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-plus-square"></i> Sağlıkçılar</h5>
+<p>Sağlık alanında görev yapan çalışanları temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Fizyoterapist -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-medkit"></i> Fizyoterapistler</h5>
+<p>Fizyoterapi alanında çalışan personeli temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Güvenlik -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-shield"></i> Koruma ve Güvenlik</h5>
+<p>Güvenlik personelinin haklarını savunur.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- ASDEP -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-briefcase"></i> ASDEP</h5>
+<p>ASDEP çalışanlarının sorunlarını takip eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Şoför -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-truck"></i> Şoförler</h5>
+<p>Ulaşım hizmetlerinde çalışan personeli temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Temizlik -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-trash"></i> Temizlik Çalışanları</h5>
+<p>Temizlik hizmetlerinde görev yapan personeli temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- İdareci -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-sitemap"></i> İdareciler</h5>
+<p>Kurum yöneticilerinin sorunlarını ele alır.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Diyetisyen -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-apple"></i> Diyetisyenler</h5>
+<p>Beslenme alanında çalışan uzmanları temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Yurt -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-building"></i> Yurt Yönetim Memurları</h5>
+<p>Yurtlarda görev yapan idari personeli temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Hukuk -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-balance-scale"></i> Hukukçular</h5>
+<p>Hukuk alanında çalışan personeli temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Teknik -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-cogs"></i> Tekniker & Teknisyenler</h5>
+<p>Teknik personelin sorunlarını takip eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Mühendis -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-wrench"></i> Mühendisler</h5>
+<p>Mühendislik alanında çalışanları temsil eder.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Uzman -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-star"></i> Uzmanlar</h5>
+<p>Uzman kadroların haklarını savunur.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Temsilci -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-flag"></i> İşyeri Temsilcileri</h5>
+<p>İşyeri temsilcileri arasındaki koordinasyonu sağlar.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- İl Başkanları -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-map"></i> İl Başkanları</h5>
+<p>İl teşkilatları arası koordinasyonu sağlar.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+<!-- Proje -->
+<div class="col-md-6 col-lg-4"><div class="p-4 border rounded-4 shadow-sm h-100 commission-card">
+<h5 class="text-danger"><i class="fa fa-lightbulb-o"></i> Toplumsal Projeler</h5>
+<p>Sosyal projeler geliştirir ve yürütür.</p>
+<a href="#" class="btn btn-success w-100"><i class="fa fa-whatsapp"></i> WhatsApp Grubu</a>
+</div></div>
+
+
+</div>
+</div>
+
+<footer class="w3-container w3-red w3-center w3-padding-32" style="margin-top: 60px;">
+  <%- include("../partials/footer") %>
+</footer>
+
+</body>
+</html>
