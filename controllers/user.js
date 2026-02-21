@@ -55,23 +55,23 @@ exports.temsilci_basvuru=function(req,res){
 
 // Başvuru gönderim kısmıı
 exports.temsilci_basvuru_post = async (req, res) => {
-  const { adsoyad, tc, telefon, email, il, kurum, aciklama } = req.body;
+    const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
 
-  const msg = {
-    to: "sosyalhizmetsen@gmail.com",
-    from: "ashbkomisyon3@gmail.com", // SendGrid’de doğrulanmış adres
-    subject: "Yeni İş Yeri Temsilcisi Başvurusu",
-    html: `
-      <h3>Yeni Başvuru</h3>
-      <p><b>Ad Soyad:</b> ${adsoyad}</p>
-      <p><b>TC:</b> ${tc}</p>
-      <p><b>Telefon:</b> ${telefon}</p>
-      <p><b>E-Posta:</b> ${email}</p>
-      <p><b>İl:</b> ${il}</p>
-      <p><b>Kurum:</b> ${kurum}</p>
-      <p><b>Açıklama:</b> ${aciklama}</p>
-    `
-  };
+    const msg = {
+        to: "sosyalhizmetsen@gmail.com",
+        from: "ashbkomisyon3@gmail.com",
+        subject: "Yeni İş Yeri Temsilcisi Başvurusu",
+        html: `
+            <h3>Yeni Başvuru</h3>
+            <p><b>Ad Soyad:</b> ${adsoyad}</p>
+            <p><b>Telefon:</b> ${telefon}</p>
+            <p><b>İl:</b> ${il}</p>
+            <p><b>Unvan:</b> ${unvan}</p>
+            <p><b>Kurum:</b> ${kurum}</p>
+            <p><b>Açıklama:</b> ${aciklama}</p>
+        `
+    };
+
 
   try {
     await sgMail.send(msg);
