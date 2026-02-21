@@ -75,13 +75,16 @@ exports.temsilci_basvuru_post = async (req, res) => {
 
   try {
     await sgMail.send(msg);
-    res.send("Başvurunuz başarıyla gönderildi.");
+    res.redirect("/temsilci/basvurualindi");
   } catch (error) {
     console.log(error);
     res.send("Mail gönderilirken hata oluştu.");
   }
 };
 
+exports.temsilci_basvur_alındı=function(req,res){
+    res.render(path.join(__dirname,"../views/users/temsilci","basvurualındı"))
+}
 
 
 exports.anasayfa=function(req,res){
