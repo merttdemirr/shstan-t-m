@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASDEP / ASDU Komisyonu</title>
+
+  <!-- W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+
+  <style>
+    body {font-family: "Lato", sans-serif; background-color: #f8f9fa;}
+    .logo-section {text-align: center; margin: 80px 0 40px 0;}
+    .logo-section img {width: 25%; max-width: 200px;}
+    .logo-section h1 {color: red; font-weight: 700; margin-top: 20px;}
+
+    .content-container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .status-badge {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+
+    .status-devam { background-color: #ffc107; color:#000; }
+    .status-tamam { background-color: #28a745; color:#fff; }
+    .status-plan { background-color: #6c757d; color:#fff; }
+
+    .progress {
+      height: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <%- include('../../partials/nav') %>
+</div>
+
+<!-- Logo -->
+<div class="logo-section">
+  <img src="/static/img/1.png" alt="Sendika Logosu">
+  <h1>SOSYAL HİZMETLER SENDİKASI</h1>
+</div>
+
+<div class="content-container">
+
+  <div class="text-center mb-5">
+    <h2 class="text-danger fw-bold">
+      <i class="fa fa-briefcase"></i> ASDEP / ASDU Komisyonu
+    </h2>
+    <p>
+      ASDEP ve ASDU personelinin sahada karşılaştığı yapısal, mali ve idari sorunların
+      tespiti ve çözümü amacıyla yürütülen sendikal çalışmaları bu sayfada
+      şeffaf biçimde takip edebilirsiniz.
+    </p>
+    <small class="text-muted">Son Güncelleme: 19.02.2026</small>
+  </div>
+
+  <hr>
+
+  <!-- Tespit Edilen Sorunlar -->
+  <h4 class="text-danger mb-3"><i class="fa fa-exclamation-circle"></i> Tespit Edilen Temel Sorunlar</h4>
+
+  <ul class="mb-5">
+    <li>Görev tanımının net olmaması ve birimler arası uygulama farklılıkları</li>
+    <li>Fazla iş yükü ve performans baskısı</li>
+    <li>Ek ödeme ve mali haklarda eşitsizlik</li>
+    <li>Geçici görevlendirme kaynaklı mağduriyetler</li>
+    <li>Fiziki çalışma koşullarının yetersizliği</li>
+  </ul>
+
+  <hr>
+
+  <!-- Çalışmalar -->
+  <h4 class="text-danger mb-4"><i class="fa fa-cogs"></i> Yürütülen Çalışmalar</h4>
+
+  <!-- Çalışma 1 -->
+  <div class="mb-4 p-4 border rounded-4 shadow-sm">
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="fw-bold mb-0">Görev Tanımı Düzenleme Talebi</h5>
+      <span class="status-badge status-devam">Devam Ediyor</span>
+    </div>
+
+    <p class="mt-3">
+      Bakanlık nezdinde görev tanımının netleştirilmesi amacıyla resmi yazı gönderilmiş,
+      saha verileri toplanarak raporlaştırılmıştır.
+    </p>
+
+    <div class="progress">
+      <div class="progress-bar bg-warning" style="width: 60%;"></div>
+    </div>
+    <small>%60 Tamamlandı</small>
+  </div>
+
+  <!-- Çalışma 2 -->
+  <div class="mb-4 p-4 border rounded-4 shadow-sm">
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="fw-bold mb-0">Ek Ödeme Artışı Girişimi</h5>
+      <span class="status-badge status-plan">Planlandı</span>
+    </div>
+
+    <p class="mt-3">
+      Mali haklara ilişkin mevzuat incelemesi tamamlanmış olup,
+      toplu sözleşme sürecinde teklif olarak sunulacaktır.
+    </p>
+
+    <div class="progress">
+      <div class="progress-bar bg-secondary" style="width: 25%;"></div>
+    </div>
+    <small>%25 Hazırlık Aşaması</small>
+  </div>
+
+  <!-- Çalışma 3 -->
+  <div class="mb-4 p-4 border rounded-4 shadow-sm">
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="fw-bold mb-0">Geçici Görevlendirme Mağduriyet Dosyası</h5>
+      <span class="status-badge status-tamam">Tamamlandı</span>
+    </div>
+
+    <p class="mt-3">
+      Geçici görevlendirme ile oluşan mağduriyetlere ilişkin saha verileri toplanmış,
+      hukuki değerlendirme yapılmış ve ilgili mercilere sunulmuştur.
+    </p>
+
+    <div class="progress">
+      <div class="progress-bar bg-success" style="width: 100%;"></div>
+    </div>
+    <small>%100 Tamamlandı</small>
+  </div>
+
+  <hr>
+
+  <!-- Süreç Bilgilendirme -->
+  <h4 class="text-danger mb-3"><i class="fa fa-info-circle"></i> Süreç Nasıl İşliyor?</h4>
+  <p>
+    1. Üyelerimizden gelen saha bildirimleri toplanır. <br>
+    2. Komisyon tarafından raporlaştırılır. <br>
+    3. Yönetim Kuruluna sunulur. <br>
+    4. Resmi yazı, görüşme veya hukuki girişim başlatılır. <br>
+    5. Süreç düzenli olarak güncellenir.
+  </p>
+
+  <div class="text-center mt-5">
+    <a href="/komisyonlar" class="btn btn-outline-danger">
+      <i class="fa fa-arrow-left"></i> Tüm Komisyonlara Dön
+    </a>
+  </div>
+
+</div>
+
+<footer class="w3-container w3-red w3-center w3-padding-32" style="margin-top: 60px;">
+  <%- include("../../partials/footer") %>
+</footer>
+
+</body>
+</html>

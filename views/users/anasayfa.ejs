@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sosyal Hizmetler Sendikası</title>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,900">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+}
+
+.nav-space {
+  height: 65px;
+}
+
+/* HERO */
+.hero-advanced {
+  background: linear-gradient(135deg, #8b0000, #dc3545);
+  color: white;
+  padding: 150px 20px 120px 20px;
+  text-align: center;
+}
+
+.hero-logo {
+  width: 190px;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  opacity: 0.95;
+}
+
+.hero-buttons .btn {
+  margin: 10px;
+  padding: 12px 28px;
+  font-weight: 700;
+  border-radius: 50px;
+}
+
+.btn-main {
+  background: white;
+  color: #dc3545;
+}
+
+/* ÖNE ÇIKAN SLIDER */
+.highlight-section {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.carousel-item {
+  padding: 50px;
+  border-radius: 1.5rem;
+  background: white;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  text-align: center;
+}
+
+.carousel-item h3 {
+  font-weight: 900;
+  color: #dc3545;
+}
+
+.carousel-item p {
+  font-size: 1.1rem;
+  margin: 20px 0;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 60px;
+  height: 60px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* SECTION */
+.section-box {
+  background: #fff;
+  padding: 50px;
+  border-radius: 1.2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  margin-bottom: 50px;
+}
+
+
+/* HABERLER - Küçültülmüş Versiyon */
+.news-card {
+  transition: 0.3s;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.news-card img {
+  height: 160px;   /* 200px yerine küçüldü */
+  object-fit: cover;
+}
+
+.news-card .card-body {
+  padding: 18px;   /* Daha kompakt */
+}
+
+.news-card h5 {
+  font-size: 1rem;  /* Başlık küçüldü */
+  font-weight: 700;
+}
+
+.news-card p {
+  font-size: 0.9rem;  /* Açıklama küçüldü */
+  margin-bottom: 10px;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 22px rgba(0,0,0,0.12);
+}
+/* DUYURULAR */
+.announcement-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.announcement-item:last-child {
+  border-bottom: none;
+}
+
+.announcement-item span {
+  font-size: 0.9rem;
+  color: #999;
+  margin-right: 10px;
+}
+
+/* RAKAMLAR */
+.stat-box {
+  text-align: center;
+  padding: 30px;
+}
+
+.stat-box h2 {
+  font-weight: 900;
+  color: #dc3545;
+  font-size: 2.7rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="w3-top">
+  <%- include('../partials/nav') %>
+</div>
+
+<div class="nav-space"></div>
+
+<!-- HERO -->
+<div class="hero-advanced">
+  <img src="/static/img/1.png" class="hero-logo">
+  <div class="hero-title">Sosyal Hizmetler Sendikası</div>
+  <div class="hero-subtitle">
+    Sosyal Hizmet Çalışanları Haklarını, Sorunlarını ve Taleplerini Aracısız Kendi Konuşuyor.
+    Gerçek temsil, güçlü örgütlenme ile mümkündür.
+  </div>
+  <div class="hero-buttons">
+    <a href="/online" class="btn btn-main btn-lg">
+      <i class="fa fa-user-plus"></i> İş Yeri Temsilci Başvurusu
+    </a>
+    <a href="/faaliyet" class="btn btn-outline-light btn-lg">
+      <i class="fa fa-bullhorn"></i> Başvurularımız
+    </a>
+  </div>
+</div>
+
+<!-- ÖNE ÇIKAN YANA KAYAR ALAN -->
+<div class="container highlight-section">
+
+<div id="highlightCarousel" class="carousel slide" data-bs-ride="carousel">
+
+<div class="carousel-inner">
+
+<!-- SLIDE 1 -->
+<div class="carousel-item active">
+  <div class="highlight-slide">
+    
+    <!-- <img src="/static/img/asdep.jpg" class="highlight-img" alt="ASDEP"> -->
+
+    <div class="highlight-content">
+      <h2>ASDEP Ek Ödeme Süreci</h2>
+      <p>
+        Ek ödeme talebimiz resmi olarak Bakanlığa iletilmiştir.
+        Sürecin takipçisi olmaya devam ediyoruz.
+      </p>
+      <a href="/faaliyet" class="btn btn-danger btn-lg">Detayları Gör</a>
+    </div>
+
+  </div>
+</div>
+<!-- SLIDE 2 -->
+<div class="carousel-item">
+<h3>Ücretsiz Hukuki Destek</h3>
+<p>
+Disiplin soruşturmaları ve idari davalarda üyelerimize
+uzman hukuk desteği sağlıyoruz.
+</p>
+<a href="/hakkimizda" class="btn btn-danger">İncele</a>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="carousel-item">
+<h3>Sendikamız Hızla Büyüyor</h3>
+<p>
+Kuruluşumuzun ilk haftasında güçlü bir örgütlenme
+başlangıcı yaptık.
+</p>
+<a href="/online" class="btn btn-danger">Sen de Katıl</a>
+</div>
+
+</div>
+
+<button class="carousel-control-prev" type="button" data-bs-target="#highlightCarousel" data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next" type="button" data-bs-target="#highlightCarousel" data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</button>
+
+</div>
+</div>
+
+<div class="container mt-5">
+
+<!-- HABERLER -->
+<div class="section-box">
+<h3 class="text-danger mb-4">
+<i class="fa fa-newspaper-o"></i> Haberler
+</h3>
+
+<div class="row">
+
+<div class="col-md-4 mb-4">
+<div class="card news-card">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+<div class="card-body">
+<h5>ASDEP Ek Ödeme Başvurusu</h5>
+<p>Ek ödeme talebimiz resmi olarak iletilmiştir.</p>
+<a href="#" class="text-danger">Devamını Oku</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-4">
+<div class="card news-card">
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+<div class="card-body">
+<h5>Üye Sayımız 80'e Ulaştı</h5>
+<p>Kuruluşumuzun ilk haftasında güçlü başlangıç.</p>
+<a href="#" class="text-danger">Devamını Oku</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-4 mb-4">
+<div class="card news-card">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+<div class="card-body">
+<h5>Hukuk Müşavirliği Anlaşması</h5>
+<p>Alanında uzman hukuk desteği sağlandı.</p>
+<a href="#" class="text-danger">Devamını Oku</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- DUYURULAR -->
+<div class="section-box">
+<h3 class="text-danger mb-4">
+<i class="fa fa-bell"></i> Duyurular
+</h3>
+
+<div class="announcement-item">
+<span>20.02.2026</span>
+İl temsilciliği başvuruları başlamıştır.
+</div>
+
+<div class="announcement-item">
+<span>18.02.2026</span>
+Ücretsiz bordro kontrolü hizmeti aktif edilmiştir.
+</div>
+
+<div class="announcement-item">
+<span>15.02.2026</span>
+Toplu görüşme süreci hakkında bilgilendirme yapılacaktır.
+</div>
+
+</div>
+
+<!-- RAKAMLAR -->
+<div class="section-box">
+<h3 class="text-danger mb-4 text-center">
+Gücümüzü Rakamlar Gösterir
+</h3>
+
+<div class="row">
+<div class="col-md-4 stat-box">
+<h2>80+</h2>
+<p>Üye</p>
+</div>
+
+<div class="col-md-4 stat-box">
+<h2>4</h2>
+<p>Resmi Girişim</p>
+</div>
+
+<div class="col-md-4 stat-box">
+<h2>1</h2>
+<p>Haftada Kurumsallaşma</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<footer class="w3-container w3-red w3-center w3-padding-32">
+<%- include("../partials/footer") %>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

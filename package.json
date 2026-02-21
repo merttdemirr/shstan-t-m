@@ -5,6 +5,7 @@
     "express": "^5.2.1",
     "mysql": "^2.18.1",
     "node.js": "^0.0.1-security",
+    "nodemailer": "^8.0.1",
     "nodemon": "^3.1.11",
     "path": "^0.12.7",
     "sequelize": "^6.37.7"

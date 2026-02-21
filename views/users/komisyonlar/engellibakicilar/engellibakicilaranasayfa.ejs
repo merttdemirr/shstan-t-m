@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sosyal Hizmetler Sendikası</title>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+
+<style>
+body {font-family:"Lato",sans-serif;background:#f8f9fa;}
+
+.logo-section{
+  text-align:center;
+  margin:80px 0 40px;
+}
+.logo-section img{width:25%;max-width:200px;}
+.logo-section h1{color:#dc3545;font-weight:700;margin-top:20px;}
+
+.hero{
+  background:linear-gradient(135deg,#dc3545,#a71d2a);
+  color:white;
+  padding:70px 20px;
+  text-align:center;
+  border-radius:1rem;
+  margin:0 auto 50px;
+  max-width:1100px;
+}
+
+.section{padding:30px 8%;}
+.section h2{
+  color:#dc3545;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.slider{overflow:hidden;}
+.slider-track{display:flex;transition:transform .6s ease;}
+
+.card{
+  min-width:300px;
+  margin:10px;
+  background:#fff;
+  border-radius:1rem;
+  padding:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,.1);
+  border:1px solid #eee;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 25px rgba(0,0,0,.15);
+  border-color:#dc3545;
+}
+.card h3{color:#dc3545;font-weight:700;}
+
+footer{
+  background:#dc3545;
+  color:#fff;
+  text-align:center;
+  padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="w3-top">
+  <%- include('../../../../partials/nav_engbak') %>
+</div>
+
+<div class="logo-section">
+  <img src="/static/img/1.png">
+  <h1>SOSYAL HİZMETLER SENDİKASI</h1>
+</div>
+
+<div class="hero">
+  <h2>Engelli Bakımcıları Komisyonu</h2>
+  <p>Engelli Bakıcılarının Çalışmaları ve Faaliyetleri</p>
+</div>
+
+<div class="section">
+<h2>📰 Haberler</h2>
+<div class="slider" data-speed="3000">
+  <div class="slider-track">
+    <div class="card"><h3>Toplu Görüşme Talebi</h3><p>Bakanlığa resmi yazı gönderildi.</p></div>
+    <div class="card"><h3>Yeni Komisyon</h3><p>Mobbing komisyonu kuruldu.</p></div>
+    <div class="card"><h3>Saha Ziyaretleri</h3><p>İl müdürlükleri geziliyor.</p></div>
+  </div>
+</div>
+</div>
+
+<div class="section">
+<h2>📢 Duyurular</h2>
+<div class="slider" data-speed="3500">
+  <div class="slider-track">
+    <div class="card"><h3>Üye Kabulü</h3><p>Başvurular başladı.</p></div>
+    <div class="card"><h3>Eğitim Programı</h3><p>Mart ayında.</p></div>
+    <div class="card"><h3>Genel Kurul</h3><p>Nisan’da yapılacak.</p></div>
+  </div>
+</div>
+</div>
+
+<div class="section">
+<h2>⚙️ Yürütülen Faaliyetler</h2>
+<div class="slider" data-speed="4000">
+  <div class="slider-track">
+    <div class="card"><h3>Hukuki Başvurular</h3><p>TİS maddeleri için.</p></div>
+    <div class="card"><h3>Dilekçeler</h3><p>Toplu başvuru alındı.</p></div>
+    <div class="card"><h3>Basın Çalışması</h3><p>Kamuoyu bilgilendirildi.</p></div>
+  </div>
+</div>
+</div>
+
+<footer class="w3-container w3-red w3-center w3-padding-32" style="margin-top: 60px;">
+  <%- include("../.././../partials/footer") %>
+</footer>
+
+<script>
+document.querySelectorAll('.slider').forEach(slider=>{
+  const track=slider.querySelector('.slider-track');
+  const cards=track.children;
+  let index=0;
+  const speed=slider.dataset.speed||3000;
+
+  setInterval(()=>{
+    index=(index+1)%cards.length;
+    const w=cards[0].offsetWidth+20;
+    track.style.transform=`translateX(-${index*w}px)`;
+  },speed);
+});
+</script>
+
+</body>
+</html>

@@ -15,6 +15,16 @@ router.use("/amac",controllersUser.amac );
 
 router.use("/faaliyet",controllersUser.faaliyet)
 
+router.use("/komisyonlar/engbak/anasayfa",controllersUser.engbakanasayfa)
+
+router.use("/komisyonlar/asdep/anasayfa",controllersUser.asdepanasayfa)
+// Temsilcilik İşlemleri
+
+router.get("/temsilci/basvuru",controllersUser.temsilci_basvuru)
+router.post("/temsilci/basvuru", controllersUser.temsilci_basvuru_post)
+
+router.use("/",controllersUser.anasayfa)
+
 
 
 module.exports=router;
