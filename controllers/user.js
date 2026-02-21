@@ -83,7 +83,7 @@ exports.temsilci_basvuru_post = async (req, res) => {
 };
 
 exports.temsilci_basvuru_alındı=function(req,res){
-    res.render(path.join(__dirname,"../views/users/temsilci","basvurualındı"))
+    res.render(path.join(__dirname,"../views/users/temsilci","basvurualindi"))
 }
 
 
