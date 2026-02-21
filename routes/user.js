@@ -3,28 +3,28 @@ const router=express.Router()
 const controllersUser=require("../controllers/user")
 const path=require("path")
 
-router.use("/about",controllersUser.about)
+router.get("/about",controllersUser.about)
 
-router.use("/komisyon",controllersUser.komisyon)
+router.get("/komisyon",controllersUser.komisyon)
 
-router.use("/contact",controllersUser.contact)
+router.get("/contact",controllersUser.contact)
 
-router.use("/blog",controllersUser.blog );
+router.get("/blog",controllersUser.blog );
 
-router.use("/amac",controllersUser.amac );
+router.get("/amac",controllersUser.amac );
 
-router.use("/faaliyet",controllersUser.faaliyet)
+router.get("/faaliyet",controllersUser.faaliyet)
 
-router.use("/komisyonlar/engbak/anasayfa",controllersUser.engbakanasayfa)
+router.get("/komisyonlar/engbak/anasayfa",controllersUser.engbakanasayfa)
 
-router.use("/komisyonlar/asdep/anasayfa",controllersUser.asdepanasayfa)
+router.get("/komisyonlar/asdep/anasayfa",controllersUser.asdepanasayfa)
 // Temsilcilik İşlemleri
 
 router.get("/temsilci/basvuru",controllersUser.temsilci_basvuru)
 router.post("/temsilci/basvuru", controllersUser.temsilci_basvuru_post)
-router.use("/temsilci/basvurualındı", controllersUser.temsilci_basvuru_alındı)
+router.get("/temsilci/basvurualindi", controllersUser.temsilci_basvuru_alındı)
 
-router.use("/",controllersUser.anasayfa)
+router.get("/",controllersUser.anasayfa)
 
 
 
