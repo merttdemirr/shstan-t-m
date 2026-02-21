@@ -52,8 +52,7 @@ exports.temsilci_basvuru=function(req,res){
 }
 
 
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY); // Bu adımda API key'i çevre değişkeni olarak kullanacağız
+
 
 exports.temsilci_basvuru_post = async (req, res) => {
   const { adsoyad, tc, telefon, email, il, kurum, aciklama } = req.body;
