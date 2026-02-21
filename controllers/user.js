@@ -53,13 +53,13 @@ exports.temsilci_basvuru=function(req,res){
 
 
 
-
+// Başvuru gönderim kısmıı
 exports.temsilci_basvuru_post = async (req, res) => {
   const { adsoyad, tc, telefon, email, il, kurum, aciklama } = req.body;
 
   const msg = {
     to: "sosyalhizmetsen@gmail.com",
-    from: "ashbkomisyon3@gmail.com", // doğrulanmış adres
+    from: "ashbkomisyon3@gmail.com", // SendGrid’de doğrulanmış adres
     subject: "Yeni İş Yeri Temsilcisi Başvurusu",
     html: `
       <h3>Yeni Başvuru</h3>
@@ -77,10 +77,12 @@ exports.temsilci_basvuru_post = async (req, res) => {
     await sgMail.send(msg);
     res.send("Başvurunuz başarıyla gönderildi.");
   } catch (error) {
-    console.error(error.response ? error.response.body : error);
+    console.log(error);
     res.send("Mail gönderilirken hata oluştu.");
   }
 };
+
+
 
 exports.anasayfa=function(req,res){
      res.render(path.join(__dirname,"../views/users","anasayfa"))
