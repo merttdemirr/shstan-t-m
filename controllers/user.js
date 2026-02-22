@@ -35,6 +35,10 @@ exports.amac=function(req,res){
     res.render(path.join(__dirname,"../views/users","amac"))
 }
 
+exports.üyelik=function(req,res){
+    res.render(path.join(__dirname,"../views/users","üyelik"))
+}
+// KOMİSYONLAR
 exports.komisyon=function(req,res){
     res.render(path.join(__dirname,"../views/users","komisyonlarımız"))
 }
@@ -84,6 +88,14 @@ exports.temsilci_basvuru_post = async (req, res) => {
 
 exports.temsilci_basvuru_alındı=function(req,res){
     res.render(path.join(__dirname,"../views/users/temsilci","basvurualındı"))
+}
+
+
+
+// faaliyetler
+
+exports.faaliyet_asdep_ek_ödeme=function(req,res){
+    res.render(path.join(__dirname,"../views/users/faaliyetler","1asdepeködeme"))
 }
 
 
