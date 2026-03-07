@@ -98,6 +98,10 @@ exports.faaliyet_asdep_ek_ödeme=function(req,res){
     res.render(path.join(__dirname,"../views/users/faaliyetler","1asdepeködeme"))
 }
 
+exports.faaliyet_huzurevi_ek_ödeme=function(req,res){
+    res.render(path.join(__dirname,"../views/users/faaliyetler","2huzurevieködeme"))
+}
+
 
 exports.anasayfa=function(req,res){
      res.render(path.join(__dirname,"../views/users","anasayfa"))

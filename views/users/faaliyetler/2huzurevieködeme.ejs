@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Huzurevi Personeli İlave Ek Ödeme Süreci</title>
+
+  <!-- W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+
+  <style>
+    body {font-family: "Lato", sans-serif; background-color: #f8f9fa;}
+
+    .logo-section {text-align: center; margin: 80px 0 40px 0;}
+    .logo-section img {width: 25%; max-width: 200px;}
+    .logo-section h1 {color: red; font-weight: 700; margin-top: 20px;}
+
+    .content-container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #dee2e6;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-left: 60px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -40px;
+      top: 20px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: red;
+    }
+
+    .status-completed { border-left: 5px solid #28a745; }
+    .status-pending { border-left: 5px solid #ffc107; }
+    .status-waiting { border-left: 5px solid #dc3545; }
+
+    .status-badge {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .badge-completed { background:#28a745; color:white; }
+    .badge-pending { background:#ffc107; color:black; }
+    .badge-waiting { background:#dc3545; color:white; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <%- include('../../../partials/nav') %>
+</div>
+
+<!-- Logo -->
+<div class="logo-section">
+  <img src="/static/img/1.png" alt="Sendika Logosu">
+  <h1>SOSYAL HİZMETLER SENDİKASI</h1>
+</div>
+
+<div class="content-container">
+
+  <div class="text-center mb-4">
+    <h2 class="text-danger fw-bold">
+      <i class="fa fa-balance-scale"></i>
+      Huzurevi Personeli İlave Ek 10 Puan Ödeme Süreci
+    </h2>
+
+    <p>
+        Toplu sözleşme hükmüne göre ağır engelli ve çocuklara yönelik yatılı sosyal hizmet kuruluşlarında görev yapan personele ek ödeme artışı öngörülmektedir. Ancak uygulamada bu ilave ödemenin yalnızca “engelli bakım ünitesi” bulunan kuruluşlarla sınırlı tutulması, Türkiye genelindeki birçok huzurevinde kısmi bağımlı ve tam bağımlı (ağır engelli) yaşlılara fiilen hizmet veren personelin bu haktan yararlanamamasına yol açmaktadır.
+
+Sendikamız tarafından yapılan başvuruda; Türkiye genelindeki huzurevi müdürlüklerinde kısmi bağımlı ve tam bağımlı/ağır engelli yaşlılara fiilen hizmet veren personelin, 8. Dönem Toplu Sözleşmesi kapsamında yer alan ilave 10 puanlık ek ödemeden (toplam 35 puan) 01.01.2026 tarihinden itibaren yararlandırılması talep edilmiştir.
+
+    </p>
+
+    <small class="text-muted">
+      Son Güncelleme: 07.03.2026
+    </small>
+  </div>
+
+  <hr>
+
+  <div class="timeline">
+
+    <!-- AŞAMA 1 -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="card shadow-sm p-4 status-completed">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold mb-0">Hukuki İnceleme Tamamlandı</h5>
+          <span class="status-badge badge-completed">Tamamlandı</span>
+        </div>
+        <p class="mt-3">
+          Huzurevlerinde görev yapan personelin ilave ek ödeme kapsamına
+          alınmasına ilişkin mevzuat ve mevcut uygulamalar sendikamız
+          avukatı tarafından detaylı şekilde incelenmiştir.
+          Yapılan değerlendirme sonucunda, huzurevi personelinin
+          <b>ilave 10 puan ek ödeme</b> düzenlemesinden yararlandırılması
+          yönünde sendikal faaliyette bulunması hususunda yöneticiler kurulumuzca karar verildi.
+        </p>
+        <small class="text-muted">Tarih: 10.02.2026</small>
+      </div>
+    </div>
+
+    <!-- AŞAMA 2 -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="card shadow-sm p-4 status-completed">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold mb-0">Bakanlığa Resmi Başvuru Yapıldı</h5>
+          <span class="status-badge badge-completed">Tamamlandı</span>
+        </div>
+        <p class="mt-3">
+          Huzurevlerinde görev yapan personelin ilave ek ödeme
+          kapsamında verilen <b>10 puanlık ek ödemeden yararlandırılması</b>
+          talebiyle hazırlanan resmi başvuru dilekçesi,
+          Aile ve Sosyal Hizmetler Bakanlığı
+          <b>Engelli ve Yaşlı Hizmetleri Genel Müdürlüğü</b> ile
+          <b>Strateji Geliştirme Başkanlığına</b> iletilmiştir.
+        </p>
+        <div class="text-center mt-4">
+          <a href="/static/documents/4.pdf"
+             target="_blank"
+             class="btn btn-danger">
+             <i class="fa fa-file-pdf-o"></i>
+             Resmi Başvuru Dilekçesini Görüntüle (PDF)
+          </a>
+        </div>
+        <small class="text-muted">Tarih: 06.03.2026</small>
+      </div>
+    </div>
+
+    <!-- AŞAMA 3 -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="card shadow-sm p-4 status-waiting">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold mb-0">Bakanlık Cevabı Bekleniyor</h5>
+          <span class="status-badge badge-waiting">Beklemede</span>
+        </div>
+        <p class="mt-3">
+          Yapılan başvuruya ilişkin olarak Bakanlıktan gelecek
+          resmi cevap beklenmektedir. Bakanlık görüşü doğrultusunda
+          sürecin bir sonraki aşaması belirlenecektir.
+        </p>
+        <small class="text-muted">Tarih: —</small>
+      </div>
+    </div>
+
+    <!-- AŞAMA 4 -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="card shadow-sm p-4 status-pending">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold mb-0">Hukuki Süreç</h5>
+          <span class="status-badge badge-pending">Hazırlık Aşaması</span>
+        </div>
+        <p class="mt-3">
+          Bakanlıktan gelecek cevabın olumsuz olması veya
+          zımni ret oluşması halinde,
+          huzurevi personelinin ilave 10 puan ek ödemeden
+          yararlandırılması amacıyla
+          <b>hukuki sürec başlatılacaktır.</b>
+        </p>
+        <small class="text-muted">Tarih: Planlanıyor</small>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-light border mt-5">
+    Süreç sendikamız tarafından hukuki ve idari boyutlarıyla
+    titizlikle takip edilmektedir.
+    Gelişmeler düzenli olarak güncellenecektir.
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="/komisyon" class="btn btn-outline-danger">
+      <i class="fa fa-arrow-left"></i> Komisyona Dön
+    </a>
+  </div>
+
+</div>
+
+<footer class="w3-container w3-red w3-center w3-padding-32" style="margin-top:60px;">
+  <%- include('../../partials/footer') %>
+</footer>
+
+</body>
+</html>

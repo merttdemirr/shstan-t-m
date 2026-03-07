@@ -29,7 +29,7 @@ router.get("/temsilci/basvurualindi", controllersUser.temsilci_basvuru_alındı)
 //Faaliyetler
 
 router.get("/faaliyetler/asdep-ek-odeme", controllersUser.faaliyet_asdep_ek_ödeme)
-
+router.get("/faaliyetler/2huzurevi-ek-odeme", controllersUser.faaliyet_huzurevi_ek_ödeme)
 router.get("/",controllersUser.anasayfa)
 
 
