@@ -1,38 +1,55 @@
-const express=require("express")
-const app=express()
-
-const path=require("path")
-const userRoutes=require("./routes/user")
-
-// SITEMAP PAKETLERİ
+const express = require("express");
+const app = express();
+const path = require("path");
+const fs = require("fs");
 const { SitemapStream, streamToPromise } = require('sitemap');
+
+const userRoutes = require("./routes/user");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/libs",express.static(path.join(__dirname,"node_modules")))
-app.use("/static",express.static(path.join(__dirname,"public")))
+app.use("/libs", express.static(path.join(__dirname,"node_modules")));
+app.use("/static", express.static(path.join(__dirname,"public")));
 
-app.set("view engine","ejs")
+app.set("view engine", "ejs");
 
-// --- SITEMAP ROUTE EKLENDİ ---
-const pages = [
-    { url: '/', changefreq: 'daily', priority: 1.0 },
-    { url: '/hakkimizda', changefreq: 'monthly', priority: 0.8 },
-    { url: '/faaliyet', changefreq: 'weekly', priority: 0.9 },
-    { url: '/temsilci/basvuru', changefreq: 'weekly', priority: 0.9 },
-    // İleride yeni sayfaları buraya ekleyebilirsin
-];
-
+// --- DİNAMİK SITEMAP ---
 app.get('/sitemap.xml', async (req, res) => {
     try {
         const smStream = new SitemapStream({ hostname: 'https://www.shsen.org' });
-        pages.forEach(page => smStream.write(page));
-        smStream.end();
 
+        const viewsPath = path.join(__dirname, "views");
+
+        const walk = (dir) => {
+            const list = fs.readdirSync(dir);
+            list.forEach(file => {
+                const filePath = path.join(dir, file);
+                const stat = fs.statSync(filePath);
+
+                if(stat && stat.isDirectory()){
+                    walk(filePath); // alt klasörleri gez
+                } else if(path.extname(file) === ".ejs") {
+                    // Relative path al
+                    const relativePath = path.relative(viewsPath, filePath).replace(/\\/g, "/");
+
+                    // Partial ve layout klasörlerini hariç tut
+                    if(!relativePath.startsWith("partials/") && !relativePath.startsWith("layouts/")) {
+                        let url = "/" + relativePath.replace(".ejs","");
+                        if(url === "/index") url = "/"; // index sayfası ana dizin
+                        smStream.write({ url, changefreq: 'weekly', priority: 0.8 });
+                    }
+                }
+            });
+        }
+
+        walk(viewsPath);
+
+        smStream.end();
         const sitemap = await streamToPromise(smStream);
         res.header('Content-Type', 'application/xml');
         res.send(sitemap.toString());
+
     } catch (err) {
         console.error(err);
         res.status(500).end();
@@ -40,8 +57,8 @@ app.get('/sitemap.xml', async (req, res) => {
 });
 
 // --- ROUTES ---
-app.use(userRoutes)
+app.use(userRoutes);
 
-app.listen(3000,function(){
-    console.log("listening on port 3000")
-})
+app.listen(3000, function(){
+    console.log("listening on port 3000");
+});
