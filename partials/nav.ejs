@@ -1,48 +1,49 @@
 <!-- Navbar Başlangıç -->
 <div class="w3-top">
-  <div class="w3-bar w3-red w3-card">
-    <!-- Logo / Anasayfa -->
-    <a href="/" class="w3-bar-item w3-button w3-padding-large">Anasayfa</a>
-           <!-- Diğer Menü Öğeleri (Solda) -->
-      <a href="/about" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Hakkımızda</a>
-      <a href="/komisyon" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Komisyonlarımız</a>
-      <a href="/blog" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Blog</a>
-      <a href="/faaliyet" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Faaliyetlerimiz</a>
-      <a href="/online" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Online Üyelik</a>
-      <!-- <a href="/admin" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Admin</a> -->
 
+  <!-- ÜST BAR -->
+  <div class="w3-bar w3-red w3-card w3-padding-8">
 
+    <!-- Anasayfa -->
+    <a href="/" class="w3-bar-item w3-button">Anasayfa</a>
 
-    <!-- Kullanıcı Girişi (Sağda) -->
-    
+    <!-- Masaüstü Menü -->
+    <a href="/about" class="w3-bar-item w3-button w3-hide-small">Hakkımızda</a>
+    <a href="/amac" class="w3-bar-item w3-button w3-hide-small">Hedeflerimiz</a>
+    <a href="/komisyon" class="w3-bar-item w3-button w3-hide-small">Komisyonlarımız</a>
+    <a href="/uyelik" class="w3-bar-item w3-button w3-hide-small">Üyelik</a>
+    <a href="/faaliyet" class="w3-bar-item w3-button w3-hide-small">Faaliyetlerimiz</a>
+    <a href="/blog" class="w3-bar-item w3-button w3-hide-small">Blog</a>
 
-     
-    <!-- Hamburger Butonu (Mobil) -->
-    <a href="javascript:void(0);" class="w3-bar-item w3-button w3-right w3-hide-medium w3-hide-large" onclick="toggleMobileMenu()">
+    <!-- Hamburger -->
+    <a href="javascript:void(0);" 
+       class="w3-bar-item w3-button w3-right w3-hide-medium w3-hide-large"
+       onclick="toggleMobileMenu()">
       <i class="fa fa-bars"></i>
     </a>
+
   </div>
 
-  <!-- Mobil Menü (Başlangıçta gizli) -->
-  <div id="mobileMenu" class="w3-bar-block w3-red w3-hide w3-hide-large w3-hide-medium">
+  <!-- MOBİL AÇILAN MENÜ -->
+  <div id="mobileMenu" class="w3-bar-block w3-red w3-hide w3-hide-medium w3-hide-large w3-animate-top">
     <a href="/about" class="w3-bar-item w3-button">Hakkımızda</a>
-    <a href="/komisyon" class="w3-bar-item w3-button">Komisyonlar</a>
-    <a href="/blog" class="w3-bar-item w3-button">Blog</a>
+    <a href="/amac" class="w3-bar-item w3-button">Hedeflerimiz</a>
+    <a href="/komisyon" class="w3-bar-item w3-button">Komisyonlarımız</a>
+    <a href="/uyelik" class="w3-bar-item w3-button">Üyelik</a>
     <a href="/faaliyet" class="w3-bar-item w3-button">Faaliyetlerimiz</a>
-    <a href="/online" class="w3-bar-item w3-button">Online Üyelik</a>
-    <a href="/admin" class="w3-bar-item w3-button">Admin</a>
-    <a href="/login" class="w3-bar-item w3-button">Kullanıcı Girişi</a>
+    <a href="/blog" class="w3-bar-item w3-button">Blog</a>
   </div>
+
 </div>
 
 <!-- Menü Toggle Script -->
 <script>
 function toggleMobileMenu() {
   var x = document.getElementById("mobileMenu");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
+  if (x.classList.contains("w3-show")) {
+    x.classList.remove("w3-show");
   } else {
-    x.className = x.className.replace(" w3-show", "");
+    x.classList.add("w3-show");
   }
 }
 </script>
