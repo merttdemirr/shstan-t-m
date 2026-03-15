@@ -140,6 +140,10 @@ exports.üyelik_basvuru_post = async (req, res) => {
   }
 };
 
+exports.üyelik_basvuru_alındı=function(req,res){
+    res.render(path.join(__dirname,"../views/users/online","üyelikbasvurualındı"))
+}
+
 
 exports.kvkk=function(req,res){
     res.render(path.join(__dirname,"../views/users/online","kvkk"))
