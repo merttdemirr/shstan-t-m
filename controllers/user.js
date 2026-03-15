@@ -145,6 +145,8 @@ exports.üyelik_basvuru_alındı=function(req,res){
 }
 
 
+
+
 exports.kvkk=function(req,res){
     res.render(path.join(__dirname,"../views/users/online","kvkk"))
 }
