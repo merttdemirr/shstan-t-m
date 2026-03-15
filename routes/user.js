@@ -32,9 +32,11 @@ router.get("/faaliyetler/asdep-ek-odeme", controllersUser.faaliyet_asdep_ek_öde
 router.get("/faaliyetler/2huzurevi-ek-odeme", controllersUser.faaliyet_huzurevi_ek_ödeme)
 router.get("/",controllersUser.anasayfa)
 
+//online üyelik
 
-
-
+router.get("/onlineuyelik",controllersUser.onlineüyelik)
+router.get("/kvkk",controllersUser.kvkk)
+router.post("/onlineuyelik", controllersUser.üyelik_basvuru_post)
 
 
 module.exports=router;

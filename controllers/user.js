@@ -107,3 +107,40 @@ exports.anasayfa=function(req,res){
      res.render(path.join(__dirname,"../views/users","anasayfa"))
 }
 
+//online üyelik
+exports.onlineüyelik=function(req,res){
+    res.render(path.join(__dirname,"../views/users/online","onlineüyelik"))
+}
+
+exports.üyelik_basvuru_post = async (req, res) => {
+    const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
+
+    const msg = {
+        to: "sosyalhizmetsen@gmail.com",
+        from: "ashbkomisyon3@gmail.com",
+        subject: " Başvurusu",
+        html: `
+            <h3>Yeni Başvuru</h3>
+            <p><b>Ad Soyad:</b> ${adsoyad}</p>
+            <p><b>Telefon:</b> ${telefon}</p>
+            <p><b>İl:</b> ${il}</p>
+            <p><b>Unvan:</b> ${unvan}</p>
+            <p><b>Kurum:</b> ${gorev_kurum}</p>
+            <p><b>Açıklama:</b> ${aciklama}</p>
+        `
+    };
+
+
+  try {
+    await sgMail.send(msg);
+    res.redirect("/temsilci/basvurualindi");
+  } catch (error) {
+    console.log(error);
+    res.send("Mail gönderilirken hata oluştu.");
+  }
+};
+
+
+exports.kvkk=function(req,res){
+    res.render(path.join(__dirname,"../views/users/online","kvkk"))
+}
