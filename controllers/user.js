@@ -133,7 +133,7 @@ exports.üyelik_basvuru_post = async (req, res) => {
 
   try {
     await sgMail.send(msg);
-    res.redirect("/online/üyelikbasvurualındı");
+    res.redirect("/onlineuyelikalındı");
   } catch (error) {
     console.log(error);
     res.send("Mail gönderilirken hata oluştu.");
