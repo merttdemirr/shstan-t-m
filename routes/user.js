@@ -37,7 +37,7 @@ router.get("/",controllersUser.anasayfa)
 router.get("/onlineuyelik",controllersUser.onlineüyelik)
 router.get("/kvkk",controllersUser.kvkk)
 router.post("/onlineuyelik", controllersUser.üyelik_basvuru_post)
-router.get("/onlineuyelikalındı", controllersUser.üyelik_basvuru_alındı)
+router.get("/onlineuyelikalindi", controllersUser.üyelik_basvuru_alındı)
 
 
 module.exports=router;
