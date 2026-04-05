@@ -11,10 +11,6 @@ app.use(express.json());
 
 app.use("/libs", express.static(path.join(__dirname,"node_modules")));
 app.use("/static", express.static(path.join(__dirname,"public")));
-// app.get("/robots.txt", (req, res) => {
-//     res.sendFile(path.join(__dirname, "public", "robots.txt"));
-// });
-
 
 app.set("view engine", "ejs");
 
