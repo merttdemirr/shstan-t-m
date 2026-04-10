@@ -102,6 +102,10 @@ exports.faaliyet_huzurevi_ek_ödeme=function(req,res){
     res.render(path.join(__dirname,"../views/users/faaliyetler","2huzurevieködeme"))
 }
 
+exports.faaliyet_asdep_izin=function(req,res){
+    res.render(path.join(__dirname,"../views/users/faaliyetler","3asdepizin"))
+}
+
 
 exports.anasayfa=function(req,res){
      res.render(path.join(__dirname,"../views/users","anasayfa"))

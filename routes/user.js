@@ -30,6 +30,7 @@ router.get("/temsilci/basvurualindi", controllersUser.temsilci_basvuru_alındı)
 
 router.get("/faaliyetler/asdep-ek-odeme", controllersUser.faaliyet_asdep_ek_ödeme)
 router.get("/faaliyetler/2huzurevi-ek-odeme", controllersUser.faaliyet_huzurevi_ek_ödeme)
+router.get("/faaliyetler/3asdep-izin", controllersUser.faaliyet_asdep_izin)
 router.get("/",controllersUser.anasayfa)
 
 //online üyelik

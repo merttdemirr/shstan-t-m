@@ -51,6 +51,32 @@
       margin-bottom: 14px;
       min-height: 70px; /* başlık yüksekliği sabit */
     }
+    .blog-success {
+  border: 2px solid #28a745;
+  background-color: #f0fff4;
+}
+
+.blog-success .blog-body h3 {
+  color: #28a745;
+}
+
+.badge-success {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.blog-success .blog-read {
+  color: #28a745;
+  font-weight: bold;
+}
+
+    
 
     .blog-body p {
       color: #444;
@@ -99,18 +125,35 @@
 <div class="blog-container">
   <div class="row g-4">
 
-  <div class="col-md-4 d-flex">
-    <div class="blog-card w-100">
-      <img src="/static/img/1.png" class="blog-img">
-      <div class="blog-body">
-        <h3>Huzurevlerinde Görev Yapan Çalışanlara Ek 10 Puan Ödemesinin Yapılması</h3>
-        <p>
-          Kısmi bağımlı ve tam bağımlı/ağır engelli yaşlılara hizmet sunan Huzurevlerinde görev yapan çalışanlara ek 10 puan ödemesinin yapılması.
-        </p>
-        <a href="/faaliyetler/2huzurevi-ek-odeme" class="blog-read">Devamını Oku</a>
+    <div class="col-md-4 d-flex">
+      <div class="blog-card w-100">
+        <img src="/static/img/1.png" class="blog-img">
+        <div class="blog-body">
+          <h3>4/D den 4/B ASDEP Kadrosuna Geçen Çalışanların 2025 Yılı İzinleri</h3>
+          <p>
+            4/B sözleşmeli ASDEP personelinin ek ödeme oranlarının,
+ 2025 yılı içerisinde 4/D statüsünden 4/B ASDEP kadrolarına geçen üyelerimizin, 2025 yılı için tanımlanan yıllık izinlerinini bazı İl Müdürlükleri tarafından silinmiştir. Silinen izinlerin tanımlanması ve İl Müdürlüklerince silinmemesi için Aile ve Sosyal Hizmetler Bakanlığına başvuru yaptık.
+          </p>
+          <a href="/faaliyetler/3asdep-izin" class="blog-read">Detayları Gör</a>
+        </div>
       </div>
     </div>
-  </div>    
+
+<div class="col-md-4 d-flex">
+  <div class="blog-card blog-success w-100">
+    <img src="/static/img/1.png" class="blog-img">
+    <div class="blog-body">
+      <h3>Huzurevlerinde Görev Yapan Çalışanlara Ek 10 Puan Ödemesinin Yapılması</h3>
+      <p>
+        Kısmi bağımlı ve tam bağımlı/ağır engelli yaşlılara hizmet sunan Huzurevlerinde görev yapan çalışanlara ek 10 puan ödemesinin yapılması.
+      </p>
+
+      <span class="badge-success">✔ Kazanım Elde Edildi</span>
+
+      <a href="/faaliyetler/2huzurevi-ek-odeme" class="blog-read">Devamını Oku</a>
+    </div>
+  </div>
+</div>
 
     <!-- Kart 1 -->
     <div class="col-md-4 d-flex">

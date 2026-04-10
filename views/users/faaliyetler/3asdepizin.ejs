@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASDEP Ek Ödeme Süreci</title>
+
+  <!-- W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+
+  <style>
+    body {font-family: "Lato", sans-serif; background-color: #f8f9fa;}
+
+    .logo-section {text-align: center; margin: 80px 0 40px 0;}
+    .logo-section img {width: 25%; max-width: 200px;}
+    .logo-section h1 {color: red; font-weight: 700; margin-top: 20px;}
+
+    .content-container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #dee2e6;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-left: 60px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -40px;
+      top: 20px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: red;
+    }
+
+    .status-completed { border-left: 5px solid #28a745; }
+    .status-pending { border-left: 5px solid #ffc107; }
+    .status-waiting { border-left: 5px solid #dc3545; }
+
+    .status-badge {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .badge-completed { background:#28a745; color:white; }
+    .badge-pending { background:#ffc107; color:black; }
+    .badge-waiting { background:#dc3545; color:white; }
+  </style>
+  <%- include('../../partials/analytic') %>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <%- include('../../../partials/nav') %>
+</div>
+
+<!-- Logo -->
+<div class="logo-section">
+  <img src="/static/img/1.png" alt="Sendika Logosu">
+  <h1>SOSYAL HİZMETLER SENDİKASI</h1>
+</div>
+
+<div class="content-container">
+
+  <div class="text-center mb-4">
+    <h2 class="text-danger fw-bold">
+      <i class="fa fa-balance-scale"></i>
+      4/D ASDEP Kadrolarından 4/B ASDEP Kadrosuna Geçenlerin 2025 Yılı Silinen İzinler
+    </h2>
+    <p>
+      2025 yılı içerisinde 4/D statüsünden 4/B ASDEP kadrolarına geçen üyelerimizin, 2025 yılı için tanımlanan yıllık izinlerinini bazı İl Müdürlükleri tarafından silinmiştir. Silinen izinlerin tanımlanması ve İl Müdürlüklerince silinmemesi için Aile ve Sosyal Hizmetler Bakanlığına başvuru yaptık.
+    </p>
+
+    <small class="text-muted">
+      Son Güncelleme: 10.04.2026
+    </small>
+  </div>
+
+  <hr>
+
+  <div class="timeline">
+
+    <!-- AŞAMA 1 -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+
+      <div class="card shadow-sm p-4 status-completed">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold mb-0">Hukuki İnceleme Tamamlandı</h5>
+          <span class="status-badge badge-completed">Tamamlandı</span>
+        </div>
+
+        <p class="mt-3">
+          2025 yılı içerisinde 4/D statüsünden 4/B ASDEP kadrolarına geçen çalışanların, kazanılmış yıllık izin haklarının bazı illerde silindiği yönünde sendikamıza çok sayıda başvuru ulaşmıştır.
+          Sendikamız avukatı tarafından detaylı biçimde incelenmiştir.
+          2025 yılı izinlerinini silinmemesi ve silinen izinlerin tekrardan tanımlanması hususunda Sendika olarak başvurulması tavsiyesi verilmiştir.
+        </p>
+
+        <small class="text-muted">Tarih: 01.04.2026</small>
+      </div>
+    </div>
+
+    <!-- AŞAMA 2 -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+
+      <div class="card shadow-sm p-4 status-completed">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold mb-0">Bakanlığa Resmi Başvuru Yapıldı</h5>
+          <span class="status-badge badge-completed">Tamamlandı</span>
+        </div>
+
+        <p class="mt-3">
+          Hazırlanan hukuki gerekçeli dilekçe, Aile ve Sosyal Hizmetler Bakanlığı Personel Genel Müdürlüğüne sunulmuştur.
+          2025 yılı izinlerinin tanımlanması talep edilmiştir.
+        </p>
+        <div class="text-center mt-4">
+            <a href="/static/documents/7.pdf"
+            target="_blank"
+            class="btn btn-danger">
+            <i class="fa fa-file-pdf-o"></i>
+            Resmi Başvuru Dilekçesini Görüntüle (PDF)
+            </a>
+        </div>
+        <small class="text-muted">Tarih: 10.04.2026</small>
+      </div>
+    </div>
+
+    <!-- AŞAMA 3 -->
+<!-- AŞAMA 4 -->
+<div class="timeline-item">
+  <div class="timeline-dot"></div>
+
+      <div class="card shadow-sm p-4 status-pending">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold mb-0">Bakanlık Yetkilileri İle Görüşme Planlanmakta</h5>
+          <span class="status-badge badge-pending">Hazırlık Aşaması</span>
+        </div>
+
+    <p class="mt-3">
+      Bakanlık yetkilileri ile
+      sendikamız tarafından Nisan ayının sonunda görüşme planlanmaktadır.
+    </p>
+<!-- 
+    <p>
+      Yapılan görüşmede Bakanlık yetkililerince,
+      <b>4/B ASDEP personelinin ek ödeme oranlarının İş ve Meslek Danışmanı emsal puanları üzerinden
+      düzenlenmesine yönelik sendikamız talebinin uygun bulunmadığı</b>
+      ifade edilmiştir.
+    </p>
+
+    <p>
+      Bu kapsamda başvuruya ilişkin <b>zımni ret süresinin dolmasının ardından</b>
+      sendikamız tarafından hukuki başvuru yapılacaktır.
+    </p> -->
+
+    <small class="text-muted">Tarih: Nisan.2026 ay sonu</small>
+  </div>
+</div>
+
+    <!-- AŞAMA 4 -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+
+      <div class="card shadow-sm p-4 status-pending">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="fw-bold mb-0">Hukuki Süreç</h5>
+          <span class="status-badge badge-pending">Hazırlık Aşaması</span>
+        </div>
+
+        <p class="mt-3">
+          Bakanlık cevabının olumsuz olması veya zımni ret oluşması halinde,
+          hukuki süreç başlatılacaktır.
+        </p>
+
+        <small class="text-muted">Tarih: Planlanıyor</small>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-light border mt-5">
+    Süreç sendikamız tarafından hukuki ve idari boyutlarıyla titizlikle takip edilmektedir.
+    Gelişmeler düzenli olarak güncellenecektir.
+  </div>
+
+    <div class="alert alert-light border mt-5">
+   Online üyelik için <a href="/onlineuyelik">Tıklayınız</a>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="/komisyon" class="btn btn-outline-danger">
+      <i class="fa fa-arrow-left"></i> Komisyona Dön
+    </a>
+  </div>
+
+</div>
+
+<footer class="w3-container w3-red w3-center w3-padding-32" style="margin-top:60px;">
+  <%- include('../../partials/footer') %>
+</footer>
+
+</body>
+</html>
