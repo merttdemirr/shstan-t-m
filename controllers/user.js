@@ -106,6 +106,9 @@ exports.faaliyet_asdep_izin=function(req,res){
     res.render(path.join(__dirname,"../views/users/faaliyetler","3asdepizin"))
 }
 
+exports.faaliyet_risk_aile=function(req,res){
+    res.render(path.join(__dirname,"../views/users/faaliyetler","4riskAile"))
+}
 
 exports.anasayfa=function(req,res){
      res.render(path.join(__dirname,"../views/users","anasayfa"))
