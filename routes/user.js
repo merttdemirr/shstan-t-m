@@ -22,9 +22,9 @@ router.get("/komisyonlar/engbak/anasayfa",controllersUser.engbakanasayfa)
 router.get("/komisyonlar/asdep/anasayfa",controllersUser.asdepanasayfa)
 // Temsilcilik İşlemleri
 
-router.get("/temsilci/basvuru",controllersUser.temsilci_basvuru)
-router.post("/temsilci/basvuru", controllersUser.temsilci_basvuru_post)
-router.get("/temsilci/basvurualindi", controllersUser.temsilci_basvuru_alındı)
+// router.get("/temsilci/basvuru",controllersUser.temsilci_basvuru)
+// router.post("/temsilci/basvuru", controllersUser.temsilci_basvuru_post)
+// router.get("/temsilci/basvurualindi", controllersUser.temsilci_basvuru_alındı)
 
 //Faaliyetler
 
