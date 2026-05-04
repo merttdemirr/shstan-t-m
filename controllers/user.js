@@ -7,13 +7,18 @@ const nodemailer = require("nodemailer");
 // ================= SMTP =================
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
+  port: 465,         // 587 yerine 465 kullanıyoruz
+  secure: true,      // port 465 için burası TRUE olmalı
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
-  }
+  },
+  // Bağlantı süresini biraz uzatalım
+  connectionTimeout: 10000, // 10 saniye
+  greetingTimeout: 10000,
+  socketTimeout: 10000
 });
+
 
 // SMTP TEST LOG
 console.log("SMTP USER:", process.env.SMTP_USER ? "OK" : "MISSING");
