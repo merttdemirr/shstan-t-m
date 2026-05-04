@@ -4,28 +4,25 @@ const path = require("path");
 const { Op } = require("sequelize");
 const nodemailer = require("nodemailer");
 
-// ===================== SMTP =====================
+// ===================== SMTP YAPILANDIRMASI =====================
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
   port: 587,
-  secure: false,
+  secure: false, 
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
   }
 });
 
-
-// ===================== TEMSİLCİ =====================
+// ===================== TEMSİLCİ BAŞVURUSU =====================
 exports.temsilci_basvuru_post = async (req, res) => {
   const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
 
   const msg = {
     to: "sosyalhizmetsen@gmail.com",
-
-    // 🔥 DÜZELTİLDİ
-    from: '"SHS Başvuru Sistemi" <aa1e9b001@smtp-brevo.com>',
-
+    // NOT: Bu adresin Brevo panelinde 'Sender' olarak doğrulanmış olması gerekir
+    from: '"SHS Başvuru Sistemi" <noreply@shsen.org>', 
     subject: "Yeni İş Yeri Temsilcisi Başvurusu",
     html: `
       <h3>Yeni Başvuru</h3>
@@ -41,25 +38,21 @@ exports.temsilci_basvuru_post = async (req, res) => {
   try {
     const info = await transporter.sendMail(msg);
     console.log("MAIL SENT:", info.response);
-
     return res.redirect("/temsilci/basvurualindi");
   } catch (error) {
     console.log("MAIL ERROR:", error);
-    return res.status(500).send("Mail gönderilirken hata oluştu.");
+    return res.status(500).send("Mail gönderilirken hata oluştu: " + error.message);
   }
 };
 
-
-// ===================== ÜYELİK =====================
+// ===================== ÜYELİK BAŞVURUSU =====================
 exports.üyelik_basvuru_post = async (req, res) => {
   const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
 
   const msg = {
     to: "sosyalhizmetsen@gmail.com",
-
-    // 🔥 DÜZELTİLDİ
-    from: '"SHS Üyelik Sistemi" <aa1e9b001@smtp-brevo.com>',
-
+    // NOT: Bu adresin Brevo panelinde 'Sender' olarak doğrulanmış olması gerekir
+    from: '"SHS Üyelik Sistemi" <noreply@shsen.org>',
     subject: "Yeni Üyelik Başvurusu",
     html: `
       <h3>Yeni Başvuru</h3>
@@ -75,10 +68,9 @@ exports.üyelik_basvuru_post = async (req, res) => {
   try {
     const info = await transporter.sendMail(msg);
     console.log("MAIL SENT:", info.response);
-
     return res.redirect("/onlineuyelikalindi");
   } catch (error) {
     console.log("MAIL ERROR:", error);
-    return res.status(500).send("Mail gönderilirken hata oluştu.");
+    return res.status(500).send("Mail gönderilirken hata oluştu: " + error.message);
   }
 };
