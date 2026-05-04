@@ -63,7 +63,7 @@ exports.temsilci_basvuru_post = async (req, res) => {
 
     const msg = {
         to: "sosyalhizmetsen@gmail.com",
-        from: "ashbkomisyon3@gmail.com",
+        from: "borsa.hocamm@gmail.com",
         subject: "Yeni İş Yeri Temsilcisi Başvurusu",
         html: `
             <h3>Yeni Başvuru</h3>
@@ -124,7 +124,7 @@ exports.üyelik_basvuru_post = async (req, res) => {
 
     const msg = {
         to: "sosyalhizmetsen@gmail.com",
-        from: "ashbkomisyon3@gmail.com",
+        from: "borsa.hocamm@gmail.com",
         subject: " Başvurusu",
         html: `
             <h3>Yeni Başvuru</h3>
