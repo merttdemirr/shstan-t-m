@@ -3,159 +3,166 @@ const router=express.Router()
 const path=require("path")
 const {Op}=require("sequelize")
 const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer");
 
-// SMTP TRANSPORT
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
   port: 587,
   secure: false,
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS
+    user: "SENIN_EMAILIN",
+    pass: "SMTP_KEY"
   }
 });
 
-// TEST (Railway logunda kontrol için)
-console.log("SMTP USER:", process.env.SMTP_USER);
-console.log("SMTP PASS:", process.env.SMTP_PASS ? "OK" : "EMPTY");
-
-// ===================== SAYFALAR =====================
-
-exports.about = (req, res) => {
-  res.render(path.join(__dirname, "../views/users", "about2"));
-};
-
-exports.contact = (req, res) => {
-  res.render(path.join(__dirname, "../views/users", "komisyonlarımız"));
-};
-
-exports.blog = (req, res) => {
-  db.query("select * from blog")
-    .then(result => {
-      res.render("users/blog", {
-        title: "Bloglar",
-        blogs: result[0],
-      });
-    })
-    .catch(err => console.log(err));
-};
-
-exports.faaliyet = (req, res) => {
-  res.render(path.join(__dirname, "../views/users", "faaliyet"));
-};
-
-exports.amac = (req, res) => {
-  res.render(path.join(__dirname, "../views/users", "amac"));
-};
-
-exports.üyelik = (req, res) => {
-  res.render(path.join(__dirname, "../views/users", "üyelik"));
-};
-
-exports.komisyon = (req, res) => {
-  res.render(path.join(__dirname, "../views/users", "komisyonlarımız"));
-};
-
-exports.engbakanasayfa = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/komisyonlar/engellibakicilar/engellibakicilaranasayfa.ejs"));
-};
-
-exports.asdepanasayfa = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/komisyonlar/asdep/asdepanasayfa.ejs"));
-};
-
-exports.anasayfa = (req, res) => {
-  res.render(path.join(__dirname, "../views/users", "anasayfa"));
-};
+exports.about=function(req,res){
+    res.render(path.join(__dirname,"../views/users","about2"))
+}
 
 
-// ===================== TEMSİLCİ =====================
+exports.contact=function(req,res){
+    res.render(path.join(__dirname,"../views/users","komisyonlarımız"))
+}
 
-// exports.temsilci_basvuru = (req, res) => {
-//   res.render(path.join(__dirname, "../views/users/temsilci", "basvuru"));
-// };
+exports.blog=function (req, res) {
+    db.query("select * from blog")
+        .then(result=>{
+            res.render("users/blog",{
+                title:"Bloglar",
+                blogs:result[0],
+               
+            });
+        })
+        .catch(err=>console.log(err))
+}
 
-// exports.temsilci_basvuru_post = async (req, res) => {
-//   const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
+exports.faaliyet=function(req,res){
+    res.render(path.join(__dirname,"../views/users","faaliyet"))
+}
 
-//   const msg = {
-//     to: "sosyalhizmetsen@gmail.com",
-//     from: '"SHS Başvuru Sistemi" <aa1e9b001@smtp-brevo.com>',
-//     subject: "Yeni İş Yeri Temsilcisi Başvurusu",
-//     html: `
-//       <h3>Yeni Başvuru</h3>
-//       <p><b>Ad Soyad:</b> ${adsoyad}</p>
-//       <p><b>Telefon:</b> ${telefon}</p>
-//       <p><b>İl:</b> ${il}</p>
-//       <p><b>Unvan:</b> ${unvan}</p>
-//       <p><b>Kurum:</b> ${kurum}</p>
-//       <p><b>Açıklama:</b> ${aciklama}</p>
-//     `
-//   };
+exports.amac=function(req,res){
+    res.render(path.join(__dirname,"../views/users","amac"))
+}
 
-//   try {
-//     const info = await transporter.sendMail(msg);
-//     console.log("MAIL SENT:", info.response);
+exports.üyelik=function(req,res){
+    res.render(path.join(__dirname,"../views/users","üyelik"))
+}
+// KOMİSYONLAR
+exports.komisyon=function(req,res){
+    res.render(path.join(__dirname,"../views/users","komisyonlarımız"))
+}
 
-//     return res.redirect("/temsilci/basvurualindi");
-//   } catch (error) {
-//     console.log("MAIL ERROR:", error);
-//     return res.status(500).send("Mail gönderilirken hata oluştu.");
-//   }
-// };
+exports.engbakanasayfa=function(req,res){
+    res.render(path.join(__dirname,"../views/users/komisyonlar/engellibakicilar/engellibakicilaranasayfa.ejs"))
+}
 
-// exports.temsilci_basvuru_alındı = (req, res) => {
-//   res.render(path.join(__dirname, "../views/users/temsilci", "basvurualındı"));
-// };
-
-
-// ===================== FAALİYETLER =====================
-
-exports.faaliyet_asdep_ek_ödeme = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/faaliyetler", "1asdepeködeme"));
-};
-
-exports.faaliyet_huzurevi_ek_ödeme = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/faaliyetler", "2huzurevieködeme"));
-};
-
-exports.faaliyet_asdep_izin = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/faaliyetler", "3asdepizin"));
-};
-
-exports.faaliyet_risk_aile = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/faaliyetler", "4riskAile"));
-};
+exports.asdepanasayfa=function(req,res){
+    res.render(path.join(__dirname,"../views/users/komisyonlar/asdep/asdepanasayfa.ejs"))
+}
+// temsilci
+exports.temsilci_basvuru=function(req,res){
+    res.render(path.join(__dirname,"../views/users/temsilci","basvuru"))
+}
 
 
-// ===================== ONLINE ÜYELİK =====================
 
-exports.üyelik_basvuru_post = async (req, res) => {
-  const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
+// Başvuru gönderim kısmıı
+exports.temsilci_basvuru_post = async (req, res) => {
+    const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
 
-  const mailOptions = {
-    from: `"SHS Sistem" <${process.env.SMTP_USER}>`,
-    to: "sosyalhizmetsen@gmail.com",
-    subject: "Yeni Üyelik Başvurusu",
-    html: `
-      <h3>Yeni Başvuru</h3>
-      <p><b>Ad Soyad:</b> ${adsoyad}</p>
-      <p><b>Telefon:</b> ${telefon}</p>
-      <p><b>İl:</b> ${il}</p>
-      <p><b>Unvan:</b> ${unvan}</p>
-      <p><b>Kurum:</b> ${gorev_kurum}</p>
-      <p><b>Açıklama:</b> ${aciklama}</p>
-    `
-  };
+    const msg = {
+        to: "sosyalhizmetsen@gmail.com",
+        from: "ashbkomisyon3@gmail.com",
+        subject: "Yeni İş Yeri Temsilcisi Başvurusu",
+        html: `
+            <h3>Yeni Başvuru</h3>
+            <p><b>Ad Soyad:</b> ${adsoyad}</p>
+            <p><b>Telefon:</b> ${telefon}</p>
+            <p><b>İl:</b> ${il}</p>
+            <p><b>Unvan:</b> ${unvan}</p>
+            <p><b>Kurum:</b> ${kurum}</p>
+            <p><b>Açıklama:</b> ${aciklama}</p>
+        `
+    };
+
 
   try {
-    await transporter.sendMail(mailOptions);
-    return res.redirect("/onlineuyelikalindi");
-  } catch (err) {
-    console.log("MAIL ERROR:", err);
-    return res.status(500).send("Mail gönderilemedi");
+    await await transporter.sendMail(msg);
+    res.redirect("/temsilci/basvurualindi");
+  } catch (error) {
+    console.log(error);
+    res.send("Mail gönderilirken hata oluştu.");
   }
 };
-exports.kvkk = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/online", "kvkk"));
+
+exports.temsilci_basvuru_alındı=function(req,res){
+    res.render(path.join(__dirname,"../views/users/temsilci","basvurualındı"))
+}
+
+
+
+// faaliyetler
+
+exports.faaliyet_asdep_ek_ödeme=function(req,res){
+    res.render(path.join(__dirname,"../views/users/faaliyetler","1asdepeködeme"))
+}
+
+exports.faaliyet_huzurevi_ek_ödeme=function(req,res){
+    res.render(path.join(__dirname,"../views/users/faaliyetler","2huzurevieködeme"))
+}
+
+exports.faaliyet_asdep_izin=function(req,res){
+    res.render(path.join(__dirname,"../views/users/faaliyetler","3asdepizin"))
+}
+
+exports.faaliyet_risk_aile=function(req,res){
+    res.render(path.join(__dirname,"../views/users/faaliyetler","4riskAile"))
+}
+
+exports.anasayfa=function(req,res){
+     res.render(path.join(__dirname,"../views/users","anasayfa"))
+}
+
+//online üyelik
+exports.onlineüyelik=function(req,res){
+    res.render(path.join(__dirname,"../views/users/online","onlineüyelik"))
+}
+
+exports.üyelik_basvuru_post = async (req, res) => {
+    const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
+
+    const msg = {
+        to: "sosyalhizmetsen@gmail.com",
+        from: "ashbkomisyon3@gmail.com",
+        subject: " Başvurusu",
+        html: `
+            <h3>Yeni Başvuru</h3>
+            <p><b>Ad Soyad:</b> ${adsoyad}</p>
+            <p><b>Telefon:</b> ${telefon}</p>
+            <p><b>İl:</b> ${il}</p>
+            <p><b>Unvan:</b> ${unvan}</p>
+            <p><b>Kurum:</b> ${gorev_kurum}</p>
+            <p><b>Açıklama:</b> ${aciklama}</p>
+        `
+    };
+
+
+  try {
+    await sgMail.send(msg);
+    res.redirect("/onlineuyelikalindi");
+  } catch (error) {
+    console.log(error);
+    res.send("Mail gönderilirken hata oluştu.");
+  }
 };
+
+exports.üyelik_basvuru_alındı=function(req,res){
+    res.render(path.join(__dirname,"../views/users/online","üyelikbasvurualındı"))
+}
+
+
+
+
+exports.kvkk=function(req,res){
+    res.render(path.join(__dirname,"../views/users/online","kvkk"))
+}
