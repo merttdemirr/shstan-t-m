@@ -40,7 +40,6 @@ router.get("/onlineuyelik",controllersUser.onlineüyelik)
 router.get("/kvkk",controllersUser.kvkk)
 router.post("/onlineuyelik", controllersUser.üyelik_basvuru_post)
 router.get("/onlineuyelikalindi", controllersUser.üyelik_basvuru_alındı)
-router.get("/mail-test", controllersUser.mail_test)
 
 module.exports=router;
 
