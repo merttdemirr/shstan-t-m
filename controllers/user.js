@@ -12,11 +12,9 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
-  },
-  tls: {
-    rejectUnauthorized: false
   }
 });
+
 // SMTP TEST LOG
 console.log("SMTP USER:", process.env.SMTP_USER ? "OK" : "MISSING");
 console.log("SMTP PASS:", process.env.SMTP_PASS ? "OK" : "MISSING");
