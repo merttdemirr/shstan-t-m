@@ -15,7 +15,10 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-
+console.log("ENV TEST:", {
+  SMTP_USER: process.env.SMTP_USER,
+  SMTP_PASS: process.env.SMTP_PASS
+});
 // ===================== SAYFALAR =====================
 
 exports.about = (req, res) => {
@@ -162,6 +165,22 @@ exports.üyelik_basvuru_post = async (req, res) => {
 
 exports.üyelik_basvuru_alındı = (req, res) => {
   res.render(path.join(__dirname, "../views/users/online", "üyelikbasvurualındı"));
+};
+exports.mail_test = async (req, res) => {
+  try {
+    const info = await transporter.sendMail({
+      to: "sosyalhizmetsen@gmail.com",
+      from: '"Test Sistem" <aa1e9b001@smtp-brevo.com>',
+      subject: "TEST MAIL",
+      html: "<h1>Mail sistemi çalışıyor</h1>"
+    });
+
+    console.log("TEST MAIL:", info.response);
+    res.send("MAIL GİTTİ");
+  } catch (err) {
+    console.log("TEST ERROR:", err);
+    res.status(500).send(err.message);
+  }
 };
 
 exports.kvkk = (req, res) => {
