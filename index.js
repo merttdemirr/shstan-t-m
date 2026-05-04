@@ -14,6 +14,8 @@ app.use("/static", express.static(path.join(__dirname,"public")));
 
 app.set("view engine", "ejs");
 
+console.log("SMTP_USER:", process.env.SMTP_USER);
+console.log("SMTP_PASS:", process.env.SMTP_PASS ? "OK" : "MISSING");
 // --- DİNAMİK SITEMAP ---
 app.get('/sitemap.xml', async (req, res) => {
     try {

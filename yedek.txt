@@ -7,18 +7,13 @@ const nodemailer = require("nodemailer");
 // ================= SMTP =================
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
-  port: 465,         // 587 yerine 465 kullanıyoruz
-  secure: true,      // port 465 için burası TRUE olmalı
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
-  },
-  // Bağlantı süresini biraz uzatalım
-  connectionTimeout: 10000, // 10 saniye
-  greetingTimeout: 10000,
-  socketTimeout: 10000
+  }
 });
-
 
 // SMTP TEST LOG
 console.log("SMTP USER:", process.env.SMTP_USER ? "OK" : "MISSING");
@@ -84,20 +79,20 @@ exports.temsilci_basvuru = (req, res) => {
 exports.temsilci_basvuru_post = async (req, res) => {
   const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
 
-    const msg = {
-        to: "sosyalhizmetsen@gmail.com",
-        from: "borsa.hocamm@gmail.com",
-        subject: "Yeni İş Yeri Temsilcisi Başvurusu",
-        html: `
-            <h3>Yeni Başvuru</h3>
-            <p><b>Ad Soyad:</b> ${adsoyad}</p>
-            <p><b>Telefon:</b> ${telefon}</p>
-            <p><b>İl:</b> ${il}</p>
-            <p><b>Unvan:</b> ${unvan}</p>
-            <p><b>Kurum:</b> ${kurum}</p>
-            <p><b>Açıklama:</b> ${aciklama}</p>
-        `
-    };
+  const msg = {
+    to: "sosyalhizmetsen@gmail.com",
+    from: `"SHS" <${process.env.SMTP_USER}>`,
+    subject: "Yeni Temsilci Başvurusu",
+    html: `
+      <h3>Yeni Başvuru</h3>
+      <p><b>Ad:</b> ${adsoyad}</p>
+      <p><b>Telefon:</b> ${telefon}</p>
+      <p><b>İl:</b> ${il}</p>
+      <p><b>Unvan:</b> ${unvan}</p>
+      <p><b>Kurum:</b> ${kurum}</p>
+      <p><b>Açıklama:</b> ${aciklama}</p>
+    `
+  };
 
   try {
     await transporter.sendMail(msg);
@@ -141,20 +136,20 @@ exports.onlineüyelik = (req, res) => {
 exports.üyelik_basvuru_post = async (req, res) => {
   const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
 
-    const msg = {
-        to: "sosyalhizmetsen@gmail.com",
-        from: "ashbkomisyon3@gmail.com",
-        subject: " Başvurusu",
-        html: `
-            <h3>Yeni Başvuru</h3>
-            <p><b>Ad Soyad:</b> ${adsoyad}</p>
-            <p><b>Telefon:</b> ${telefon}</p>
-            <p><b>İl:</b> ${il}</p>
-            <p><b>Unvan:</b> ${unvan}</p>
-            <p><b>Kurum:</b> ${gorev_kurum}</p>
-            <p><b>Açıklama:</b> ${aciklama}</p>
-        `
-    };
+  const msg = {
+    to: "sosyalhizmetsen@gmail.com",
+    from: `"SHS" <${process.env.SMTP_USER}>`,
+    subject: "Yeni Üyelik Başvurusu",
+    html: `
+      <h3>Yeni Üyelik</h3>
+      <p><b>Ad:</b> ${adsoyad}</p>
+      <p><b>Telefon:</b> ${telefon}</p>
+      <p><b>İl:</b> ${il}</p>
+      <p><b>Unvan:</b> ${unvan}</p>
+      <p><b>Kurum:</b> ${gorev_kurum}</p>
+      <p><b>Açıklama:</b> ${aciklama}</p>
+    `
+  };
 
   try {
     await transporter.sendMail(msg);
