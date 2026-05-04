@@ -4,7 +4,7 @@ const path=require("path")
 const {Op}=require("sequelize")
 const nodemailer = require("nodemailer");
 
-// ===================== SMTP =====================
+// SMTP TRANSPORT
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
   port: 587,
@@ -15,10 +15,10 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-console.log("ENV TEST:", {
-  SMTP_USER: process.env.SMTP_USER,
-  SMTP_PASS: process.env.SMTP_PASS
-});
+// TEST (Railway logunda kontrol için)
+console.log("SMTP USER:", process.env.SMTP_USER);
+console.log("SMTP PASS:", process.env.SMTP_PASS ? "OK" : "EMPTY");
+
 // ===================== SAYFALAR =====================
 
 exports.about = (req, res) => {
@@ -71,42 +71,42 @@ exports.anasayfa = (req, res) => {
 
 // ===================== TEMSİLCİ =====================
 
-exports.temsilci_basvuru = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/temsilci", "basvuru"));
-};
+// exports.temsilci_basvuru = (req, res) => {
+//   res.render(path.join(__dirname, "../views/users/temsilci", "basvuru"));
+// };
 
-exports.temsilci_basvuru_post = async (req, res) => {
-  const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
+// exports.temsilci_basvuru_post = async (req, res) => {
+//   const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
 
-  const msg = {
-    to: "sosyalhizmetsen@gmail.com",
-    from: '"SHS Başvuru Sistemi" <aa1e9b001@smtp-brevo.com>',
-    subject: "Yeni İş Yeri Temsilcisi Başvurusu",
-    html: `
-      <h3>Yeni Başvuru</h3>
-      <p><b>Ad Soyad:</b> ${adsoyad}</p>
-      <p><b>Telefon:</b> ${telefon}</p>
-      <p><b>İl:</b> ${il}</p>
-      <p><b>Unvan:</b> ${unvan}</p>
-      <p><b>Kurum:</b> ${kurum}</p>
-      <p><b>Açıklama:</b> ${aciklama}</p>
-    `
-  };
+//   const msg = {
+//     to: "sosyalhizmetsen@gmail.com",
+//     from: '"SHS Başvuru Sistemi" <aa1e9b001@smtp-brevo.com>',
+//     subject: "Yeni İş Yeri Temsilcisi Başvurusu",
+//     html: `
+//       <h3>Yeni Başvuru</h3>
+//       <p><b>Ad Soyad:</b> ${adsoyad}</p>
+//       <p><b>Telefon:</b> ${telefon}</p>
+//       <p><b>İl:</b> ${il}</p>
+//       <p><b>Unvan:</b> ${unvan}</p>
+//       <p><b>Kurum:</b> ${kurum}</p>
+//       <p><b>Açıklama:</b> ${aciklama}</p>
+//     `
+//   };
 
-  try {
-    const info = await transporter.sendMail(msg);
-    console.log("MAIL SENT:", info.response);
+//   try {
+//     const info = await transporter.sendMail(msg);
+//     console.log("MAIL SENT:", info.response);
 
-    return res.redirect("/temsilci/basvurualindi");
-  } catch (error) {
-    console.log("MAIL ERROR:", error);
-    return res.status(500).send("Mail gönderilirken hata oluştu.");
-  }
-};
+//     return res.redirect("/temsilci/basvurualindi");
+//   } catch (error) {
+//     console.log("MAIL ERROR:", error);
+//     return res.status(500).send("Mail gönderilirken hata oluştu.");
+//   }
+// };
 
-exports.temsilci_basvuru_alındı = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/temsilci", "basvurualındı"));
-};
+// exports.temsilci_basvuru_alındı = (req, res) => {
+//   res.render(path.join(__dirname, "../views/users/temsilci", "basvurualındı"));
+// };
 
 
 // ===================== FAALİYETLER =====================
@@ -130,16 +130,12 @@ exports.faaliyet_risk_aile = (req, res) => {
 
 // ===================== ONLINE ÜYELİK =====================
 
-exports.onlineüyelik = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/online", "onlineüyelik"));
-};
-
 exports.üyelik_basvuru_post = async (req, res) => {
   const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
 
-  const msg = {
+  const mailOptions = {
+    from: `"SHS Sistem" <${process.env.SMTP_USER}>`,
     to: "sosyalhizmetsen@gmail.com",
-    from: '"SHS Üyelik Sistemi" <aa1e9b001@smtp-brevo.com>',
     subject: "Yeni Üyelik Başvurusu",
     html: `
       <h3>Yeni Başvuru</h3>
@@ -153,36 +149,13 @@ exports.üyelik_basvuru_post = async (req, res) => {
   };
 
   try {
-    const info = await transporter.sendMail(msg);
-    console.log("MAIL SENT:", info.response);
-
+    await transporter.sendMail(mailOptions);
     return res.redirect("/onlineuyelikalindi");
-  } catch (error) {
-    console.log("MAIL ERROR:", error);
-    return res.status(500).send("Mail gönderilirken hata oluştu.");
-  }
-};
-
-exports.üyelik_basvuru_alındı = (req, res) => {
-  res.render(path.join(__dirname, "../views/users/online", "üyelikbasvurualındı"));
-};
-exports.mail_test = async (req, res) => {
-  try {
-    const info = await transporter.sendMail({
-      to: "sosyalhizmetsen@gmail.com",
-      from: '"Test Sistem" <aa1e9b001@smtp-brevo.com>',
-      subject: "TEST MAIL",
-      html: "<h1>Mail sistemi çalışıyor</h1>"
-    });
-
-    console.log("TEST MAIL:", info.response);
-    res.send("MAIL GİTTİ");
   } catch (err) {
-    console.log("TEST ERROR:", err);
-    res.status(500).send(err.message);
+    console.log("MAIL ERROR:", err);
+    return res.status(500).send("Mail gönderilemedi");
   }
 };
-
 exports.kvkk = (req, res) => {
   res.render(path.join(__dirname, "../views/users/online", "kvkk"));
 };
