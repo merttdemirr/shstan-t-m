@@ -3,7 +3,6 @@ const router=express.Router()
 const path=require("path")
 const {Op}=require("sequelize")
 const nodemailer = require("nodemailer");
-const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
