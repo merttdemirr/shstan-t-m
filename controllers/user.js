@@ -16,34 +16,34 @@ const transporter = nodemailer.createTransport({
 });
 
 // ===================== TEMSİLCİ BAŞVURUSU =====================
-exports.temsilci_basvuru_post = async (req, res) => {
-  const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
+// exports.temsilci_basvuru_post = async (req, res) => {
+//   const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
 
-  const msg = {
-    to: "sosyalhizmetsen@gmail.com",
-    // NOT: Bu adresin Brevo panelinde 'Sender' olarak doğrulanmış olması gerekir
-    from: '"SHS Başvuru Sistemi" <noreply@shsen.org>', 
-    subject: "Yeni İş Yeri Temsilcisi Başvurusu",
-    html: `
-      <h3>Yeni Başvuru</h3>
-      <p><b>Ad Soyad:</b> ${adsoyad}</p>
-      <p><b>Telefon:</b> ${telefon}</p>
-      <p><b>İl:</b> ${il}</p>
-      <p><b>Unvan:</b> ${unvan}</p>
-      <p><b>Kurum:</b> ${kurum}</p>
-      <p><b>Açıklama:</b> ${aciklama}</p>
-    `
-  };
+//   const msg = {
+//     to: "sosyalhizmetsen@gmail.com",
+//     // NOT: Bu adresin Brevo panelinde 'Sender' olarak doğrulanmış olması gerekir
+//     from: '"SHS Başvuru Sistemi" <noreply@shsen.org>', 
+//     subject: "Yeni İş Yeri Temsilcisi Başvurusu",
+//     html: `
+//       <h3>Yeni Başvuru</h3>
+//       <p><b>Ad Soyad:</b> ${adsoyad}</p>
+//       <p><b>Telefon:</b> ${telefon}</p>
+//       <p><b>İl:</b> ${il}</p>
+//       <p><b>Unvan:</b> ${unvan}</p>
+//       <p><b>Kurum:</b> ${kurum}</p>
+//       <p><b>Açıklama:</b> ${aciklama}</p>
+//     `
+//   };
 
-  try {
-    const info = await transporter.sendMail(msg);
-    console.log("MAIL SENT:", info.response);
-    return res.redirect("/temsilci/basvurualindi");
-  } catch (error) {
-    console.log("MAIL ERROR:", error);
-    return res.status(500).send("Mail gönderilirken hata oluştu: " + error.message);
-  }
-};
+//   try {
+//     const info = await transporter.sendMail(msg);
+//     console.log("MAIL SENT:", info.response);
+//     return res.redirect("/temsilci/basvurualindi");
+//   } catch (error) {
+//     console.log("MAIL ERROR:", error);
+//     return res.status(500).send("Mail gönderilirken hata oluştu: " + error.message);
+//   }
+// };
 
 // ===================== ÜYELİK BAŞVURUSU =====================
 exports.üyelik_basvuru_post = async (req, res) => {
