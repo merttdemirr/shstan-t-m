@@ -1,7 +1,7 @@
-const express=require("express")
-const router=express.Router()
-const path=require("path")
-const {Op}=require("sequelize")
+const express = require("express");
+const router = express.Router();
+const path = require("path");
+const { Op } = require("sequelize");
 const nodemailer = require("nodemailer");
 const Mailgun = require("mailgun.js");
 Mailgun.setApiKey(process.env.MAİLGUN_API_KEY);
@@ -11,59 +11,62 @@ exports.about=function(req,res){
 }
 
 
-exports.contact=function(req,res){
-    res.render(path.join(__dirname,"../views/users","komisyonlarımız"))
-}
+exports.contact = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/komisyonlarımız"));
+};
 
-exports.blog=function (req, res) {
-    db.query("select * from blog")
-        .then(result=>{
-            res.render("users/blog",{
-                title:"Bloglar",
-                blogs:result[0],
-               
-            });
-        })
-        .catch(err=>console.log(err))
-}
+exports.blog = (req, res) => {
+  db.query("select * from blog")
+    .then(result => {
+      res.render("users/blog", {
+        title: "Bloglar",
+        blogs: result[0],
+      });
+    })
+    .catch(err => console.log(err));
+};
 
-exports.faaliyet=function(req,res){
-    res.render(path.join(__dirname,"../views/users","faaliyet"))
-}
+exports.faaliyet = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/faaliyet"));
+};
 
-exports.amac=function(req,res){
-    res.render(path.join(__dirname,"../views/users","amac"))
-}
+exports.amac = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/amac"));
+};
 
-exports.üyelik=function(req,res){
-    res.render(path.join(__dirname,"../views/users","üyelik"))
-}
-// KOMİSYONLAR
-exports.komisyon=function(req,res){
-    res.render(path.join(__dirname,"../views/users","komisyonlarımız"))
-}
+exports.üyelik = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/üyelik"));
+};
 
-exports.engbakanasayfa=function(req,res){
-    res.render(path.join(__dirname,"../views/users/komisyonlar/engellibakicilar/engellibakicilaranasayfa.ejs"))
-}
+exports.komisyon = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/komisyonlarımız"));
+};
 
-exports.asdepanasayfa=function(req,res){
-    res.render(path.join(__dirname,"../views/users/komisyonlar/asdep/asdepanasayfa.ejs"))
-}
-// temsilci
-exports.temsilci_basvuru=function(req,res){
-    res.render(path.join(__dirname,"../views/users/temsilci","basvuru"))
-}
+exports.engbakanasayfa = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/komisyonlar/engellibakicilar/engellibakicilaranasayfa"));
+};
 
+exports.asdepanasayfa = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/komisyonlar/asdep/asdepanasayfa"));
+};
+
+exports.anasayfa = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/anasayfa"));
+};
 
 
-// Başvuru gönderim kısmıı
+// ================= TEMSİLCİ =================
+
+exports.temsilci_basvuru = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/temsilci/basvuru"));
+};
+
 exports.temsilci_basvuru_post = async (req, res) => {
-    const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
+  const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
 
     const msg = {
-        to: "ashbkomisyon3@gmail.com",
-        from: "postmaster@sandboxd188320ee69c4359b20dda477e8c3efb.mailgun.org",
+        to: "sosyalhizmetsen@gmail.com",
+        from: "ashbkomisyon3@gmail.com",
         subject: "Yeni İş Yeri Temsilcisi Başvurusu",
         html: `
             <h3>Yeni Başvuru</h3>
@@ -76,51 +79,47 @@ exports.temsilci_basvuru_post = async (req, res) => {
         `
     };
 
-
   try {
-    await Mailgun.send(msg);
+    await sgMail.send(msg);
     res.redirect("/temsilci/basvurualindi");
   } catch (error) {
-    console.log(error);
-    res.send("Mail gönderilirken hata oluştu.");
+    console.log("MAIL ERROR:", error);
+    return res.status(500).send("Mail gönderilemedi");
   }
 };
 
-exports.temsilci_basvuru_alındı=function(req,res){
-    res.render(path.join(__dirname,"../views/users/temsilci","basvurualındı"))
-}
+exports.temsilci_basvuru_alındı = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/temsilci/basvurualındı"));
+};
 
 
+// ================= FAALİYETLER =================
 
-// faaliyetler
+exports.faaliyet_asdep_ek_ödeme = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/faaliyetler/1asdepeködeme"));
+};
 
-exports.faaliyet_asdep_ek_ödeme=function(req,res){
-    res.render(path.join(__dirname,"../views/users/faaliyetler","1asdepeködeme"))
-}
+exports.faaliyet_huzurevi_ek_ödeme = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/faaliyetler/2huzurevieködeme"));
+};
 
-exports.faaliyet_huzurevi_ek_ödeme=function(req,res){
-    res.render(path.join(__dirname,"../views/users/faaliyetler","2huzurevieködeme"))
-}
+exports.faaliyet_asdep_izin = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/faaliyetler/3asdepizin"));
+};
 
-exports.faaliyet_asdep_izin=function(req,res){
-    res.render(path.join(__dirname,"../views/users/faaliyetler","3asdepizin"))
-}
+exports.faaliyet_risk_aile = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/faaliyetler/4riskAile"));
+};
 
-exports.faaliyet_risk_aile=function(req,res){
-    res.render(path.join(__dirname,"../views/users/faaliyetler","4riskAile"))
-}
 
-exports.anasayfa=function(req,res){
-     res.render(path.join(__dirname,"../views/users","anasayfa"))
-}
+// ================= ONLINE ÜYELİK =================
 
-//online üyelik
-exports.onlineüyelik=function(req,res){
-    res.render(path.join(__dirname,"../views/users/online","onlineüyelik"))
-}
+exports.onlineüyelik = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/online/onlineüyelik"));
+};
 
 exports.üyelik_basvuru_post = async (req, res) => {
-    const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
+  const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
 
     const msg = {
         to: "ashbkomisyon3@gmail.com",
@@ -137,23 +136,19 @@ exports.üyelik_basvuru_post = async (req, res) => {
         `
     };
 
-
   try {
-    await Mailgun.send(msg);
+    await sgMail.send(msg);
     res.redirect("/onlineuyelikalindi");
   } catch (error) {
-    console.log(error);
-    res.send("Mail gönderilirken hata oluştu.");
+    console.log("MAIL ERROR:", error);
+    return res.status(500).send("Mail gönderilemedi");
   }
 };
 
-exports.üyelik_basvuru_alındı=function(req,res){
-    res.render(path.join(__dirname,"../views/users/online","üyelikbasvurualındı"))
-}
+exports.üyelik_basvuru_alındı = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/online/üyelikbasvurualındı"));
+};
 
-
-
-
-exports.kvkk=function(req,res){
-    res.render(path.join(__dirname,"../views/users/online","kvkk"))
-}
+exports.kvkk = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/online/kvkk"));
+};
