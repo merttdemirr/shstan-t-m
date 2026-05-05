@@ -3,8 +3,8 @@ const router=express.Router()
 const path=require("path")
 const {Op}=require("sequelize")
 const nodemailer = require("nodemailer");
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const Mailgun = require("mailgun.js");
+Mailgun.setApiKey(process.env.MAİLGUN_API_KEY);
 
 exports.about=function(req,res){
     res.render(path.join(__dirname,"../views/users","about2"))
@@ -62,8 +62,8 @@ exports.temsilci_basvuru_post = async (req, res) => {
     const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
 
     const msg = {
-        to: "sosyalhizmetsen@gmail.com",
-        from: "ashbkomisyon3@gmail.com",
+        to: "ashbkomisyon3@gmail.com",
+        from: "postmaster@sandboxd188320ee69c4359b20dda477e8c3efb.mailgun.org",
         subject: "Yeni İş Yeri Temsilcisi Başvurusu",
         html: `
             <h3>Yeni Başvuru</h3>
@@ -78,7 +78,7 @@ exports.temsilci_basvuru_post = async (req, res) => {
 
 
   try {
-    await sgMail.send(msg);
+    await Mailgun.send(msg);
     res.redirect("/temsilci/basvurualindi");
   } catch (error) {
     console.log(error);
@@ -123,8 +123,8 @@ exports.üyelik_basvuru_post = async (req, res) => {
     const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
 
     const msg = {
-        to: "sosyalhizmetsen@gmail.com",
-        from: "ashbkomisyon3@gmail.com",
+        to: "ashbkomisyon3@gmail.com",
+        from: "postmaster@sandboxd188320ee69c4359b20dda477e8c3efb.mailgun.org",
         subject: " Başvurusu",
         html: `
             <h3>Yeni Başvuru</h3>
@@ -139,7 +139,7 @@ exports.üyelik_basvuru_post = async (req, res) => {
 
 
   try {
-    await sgMail.send(msg);
+    await Mailgun.send(msg);
     res.redirect("/onlineuyelikalindi");
   } catch (error) {
     console.log(error);
