@@ -1,15 +1,39 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const { Op } = require("sequelize");
-const nodemailer = require("nodemailer");
-const Mailgun = require("mailgun.js");
-Mailgun.setApiKey(process.env.MAİLGUN_API_KEY);
 
-exports.about=function(req,res){
-    res.render(path.join(__dirname,"../views/users","about2"))
+// ================= MAILGUN =================
+const FormData = require("form-data");
+const Mailgun = require("mailgun.js");
+
+const mailgun = new Mailgun(FormData);
+
+const mg = mailgun.client({
+  username: "api",
+  key: process.env.MAILGUN_API_KEY,
+});
+
+async function sendMail({ to, subject, html }) {
+  return await mg.messages.create(process.env.MAILGUN_DOMAIN, {
+    from: `Sendika <noreply@${process.env.MAILGUN_DOMAIN}>`,
+    to,
+    subject,
+    html,
+  });
 }
 
+// ================= SAFE TEXT =================
+function clean(text) {
+  return String(text || "")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+// ================= SAYFALAR =================
+
+exports.about = (req, res) => {
+  res.render(path.join(__dirname, "../views/users/about2"));
+};
 
 exports.contact = (req, res) => {
   res.render(path.join(__dirname, "../views/users/komisyonlarımız"));
@@ -54,7 +78,6 @@ exports.anasayfa = (req, res) => {
   res.render(path.join(__dirname, "../views/users/anasayfa"));
 };
 
-
 // ================= TEMSİLCİ =================
 
 exports.temsilci_basvuru = (req, res) => {
@@ -64,23 +87,21 @@ exports.temsilci_basvuru = (req, res) => {
 exports.temsilci_basvuru_post = async (req, res) => {
   const { adsoyad, telefon, il, unvan, kurum, aciklama } = req.body;
 
-    const msg = {
-        to: "sosyalhizmetsen@gmail.com",
-        from: "ashbkomisyon3@gmail.com",
-        subject: "Yeni İş Yeri Temsilcisi Başvurusu",
-        html: `
-            <h3>Yeni Başvuru</h3>
-            <p><b>Ad Soyad:</b> ${adsoyad}</p>
-            <p><b>Telefon:</b> ${telefon}</p>
-            <p><b>İl:</b> ${il}</p>
-            <p><b>Unvan:</b> ${unvan}</p>
-            <p><b>Kurum:</b> ${kurum}</p>
-            <p><b>Açıklama:</b> ${aciklama}</p>
-        `
-    };
-
   try {
-    await sgMail.send(msg);
+    await sendMail({
+      to: ["sosyalhizmetsen@gmail.com"],
+      subject: "Yeni Temsilci Başvurusu",
+      html: `
+        <h3>Yeni Başvuru</h3>
+        <p><b>Ad Soyad:</b> ${clean(adsoyad)}</p>
+        <p><b>Telefon:</b> ${clean(telefon)}</p>
+        <p><b>İl:</b> ${clean(il)}</p>
+        <p><b>Unvan:</b> ${clean(unvan)}</p>
+        <p><b>Kurum:</b> ${clean(kurum)}</p>
+        <p><b>Açıklama:</b> ${clean(aciklama)}</p>
+      `
+    });
+
     res.redirect("/temsilci/basvurualindi");
   } catch (error) {
     console.log("MAIL ERROR:", error);
@@ -91,7 +112,6 @@ exports.temsilci_basvuru_post = async (req, res) => {
 exports.temsilci_basvuru_alındı = (req, res) => {
   res.render(path.join(__dirname, "../views/users/temsilci/basvurualındı"));
 };
-
 
 // ================= FAALİYETLER =================
 
@@ -111,7 +131,6 @@ exports.faaliyet_risk_aile = (req, res) => {
   res.render(path.join(__dirname, "../views/users/faaliyetler/4riskAile"));
 };
 
-
 // ================= ONLINE ÜYELİK =================
 
 exports.onlineüyelik = (req, res) => {
@@ -121,23 +140,21 @@ exports.onlineüyelik = (req, res) => {
 exports.üyelik_basvuru_post = async (req, res) => {
   const { adsoyad, telefon, il, unvan, gorev_kurum, aciklama } = req.body;
 
-    const msg = {
-        to: "ashbkomisyon3@gmail.com",
-        from: "postmaster@sandboxd188320ee69c4359b20dda477e8c3efb.mailgun.org",
-        subject: " Başvurusu",
-        html: `
-            <h3>Yeni Başvuru</h3>
-            <p><b>Ad Soyad:</b> ${adsoyad}</p>
-            <p><b>Telefon:</b> ${telefon}</p>
-            <p><b>İl:</b> ${il}</p>
-            <p><b>Unvan:</b> ${unvan}</p>
-            <p><b>Kurum:</b> ${gorev_kurum}</p>
-            <p><b>Açıklama:</b> ${aciklama}</p>
-        `
-    };
-
   try {
-    await sgMail.send(msg);
+    await sendMail({
+      to: ["sosyalhizmetsen@gmail.com"],
+      subject: "Yeni Üyelik Başvurusu",
+      html: `
+        <h3>Yeni Başvuru</h3>
+        <p><b>Ad Soyad:</b> ${clean(adsoyad)}</p>
+        <p><b>Telefon:</b> ${clean(telefon)}</p>
+        <p><b>İl:</b> ${clean(il)}</p>
+        <p><b>Unvan:</b> ${clean(unvan)}</p>
+        <p><b>Kurum:</b> ${clean(gorev_kurum)}</p>
+        <p><b>Açıklama:</b> ${clean(aciklama)}</p>
+      `
+    });
+
     res.redirect("/onlineuyelikalindi");
   } catch (error) {
     console.log("MAIL ERROR:", error);
