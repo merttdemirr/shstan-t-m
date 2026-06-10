@@ -33,7 +33,7 @@ router.get("/faaliyetler/2huzurevi-ek-odeme", controllersUser.faaliyet_huzurevi_
 router.get("/faaliyetler/3asdep-izin", controllersUser.faaliyet_asdep_izin)
 router.get("/faaliyetler/4risk-aile", controllersUser.faaliyet_risk_aile)
 router.get("/",controllersUser.anasayfa)
-router.get("faaliyetler/secim", controllersUser.duyuru_secim)
+router.get("/faaliyetler/4risk-aile", controllersUser.duyuru_secim)
 //online üyelik
 
 router.get("/onlineuyelik",controllersUser.onlineüyelik)
