@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASDEP Ek Ödeme Süreci</title>
+
+  <!-- W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+
+  <style>
+    body {font-family: "Lato", sans-serif; background-color: #f8f9fa;}
+
+    .logo-section {text-align: center; margin: 80px 0 40px 0;}
+    .logo-section img {width: 25%; max-width: 200px;}
+    .logo-section h1 {color: red; font-weight: 700; margin-top: 20px;}
+
+    .content-container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #dee2e6;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-left: 60px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -40px;
+      top: 20px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: red;
+    }
+
+    .status-completed { border-left: 5px solid #28a745; }
+    .status-pending { border-left: 5px solid #ffc107; }
+    .status-waiting { border-left: 5px solid #dc3545; }
+
+    .status-badge {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .badge-completed { background:#28a745; color:white; }
+    .badge-pending { background:#ffc107; color:black; }
+    .badge-waiting { background:#dc3545; color:white; }
+  </style>
+  <%- include('../../partials/analytic') %>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <%- include('../../../partials/nav') %>
+</div>
+
+<!-- Logo -->
+<div class="logo-section">
+  <img src="/static/img/1.png" alt="Sendika Logosu">
+  <h1>SOSYAL HİZMETLER SENDİKASI</h1>
+</div>
+
+<div class="content-container">
+
+  <div class="text-center mb-4">
+    <h2 class="text-danger fw-bold">
+      <i class="fa fa-balance-scale"></i>
+      1. Olağan Genel Kurul Duyurusu
+    </h2>
+    <p>
+      Sosyal Hizmetler Sendikamızın (Sosyal Hizmet-Sen) 1.Olağan Genel Kurulu çoğunluk sağlandığı takdirde Büyükşehir Sanat Merkezleri Ergin Orbey Sosyal Sahnesi’nde 27.06.2026 tarihi Cumartesi günü saat 14.00-17.00 saatleri arasında yapılacaktır.
+İlk toplantıda çoğunluk sağlanamadığı takdirde, ikinci toplantı 28.06.2026 tarihinde Pazar günü aynı saat ve adreste çoğunluk aranmaksızın, aşağıdaki gündemde yapılacaktır.
+
+    </p>
+     <h3 class="section-title mt-5">
+    Genel Kurul Gündemi
+  </h3>
+
+  <ul class="demand-list">
+    <li>
+      Açılış ve yoklama
+    </li>
+
+    <li>
+      Divan heyetinin seçimi
+    </li>
+
+    <li>
+      Saygı duruşu ve İstiklâl Marşı'nın okunması
+    </li>
+
+    <li>
+      Yeni dönem tahmini bütçesinin görüşülmesi ve onaylanması
+    </li>
+
+    <li>
+      Genel Kurul tarafından Yönetim Kuruluna tüzükte belirtilen yetkilerin verilmesinin görüşülmesi
+    </li>
+
+    <li>
+      Dilek ve temenniler
+    </li>
+
+    <li>
+      Kapanış
+    </li>
+  </ul>
+
+    <small class="text-muted">
+      Son Güncelleme: 10.06.2026
+    </small>
+  </div>
+
+  <hr>
+
+  <div class="timeline">
+
+
+
+
+
+    <!-- AŞAMA 3 -->
+<!-- AŞAMA 4 -->
+<div class="timeline-item">
+  <div class="timeline-dot"></div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+<footer class="w3-container w3-red w3-center w3-padding-32" style="margin-top:60px;">
+  <%- include('../../partials/footer') %>
+</footer>
+
+</body>
+</html>

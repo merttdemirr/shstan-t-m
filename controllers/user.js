@@ -110,8 +110,8 @@ exports.faaliyet_risk_aile=function(req,res){
     res.render(path.join(__dirname,"../views/users/faaliyetler","4riskAile"))
 }
 
-exports.duyuru_secim=function(req,res){
-    res.render(path.join(__dirname,"../views/users/faaliyetler","secim"))
+exports.genelkurul=function(req,res){
+    res.render(path.join(__dirname,"../views/users/faaliyetler","genelkurul"))
 }
 
 
